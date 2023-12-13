@@ -23,6 +23,7 @@ namespace SharinganSolutions.DataTresCapas
                     cm.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
                     cm.ExecuteNonQuery();
                     string men = cm.Parameters["@Mensaje"].Value.ToString();
+
                     using (SqlDataAdapter da = new SqlDataAdapter(cm))
                     {
                         da.Fill(dt);
