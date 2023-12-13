@@ -10,6 +10,11 @@ namespace appSalonFiestasTrescapas.Controllers
     public class LoginController : Controller
     {
         // GET: Login
+
+        public ActionResult Home()
+        {
+            return View();
+        }
         public ActionResult LoginUsuarioSalon()
         {
             new BUsuarioSalon().getUsuarioSalon(1);
