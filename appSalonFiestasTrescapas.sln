@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSalonFiestasTrescapas", "appSalonFiestasTrescapas\appSalonFiestasTrescapas.csproj", "{D2E3BB18-051F-4A2B-9804-9EF01A964E61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.UI", "1.UI", "{C8E3E903-E4E3-4CE7-BFBE-BF4E85F9C1B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Bussines", "2.Bussines", "{1A4A9617-B6AC-41F3-BBBE-520BA9F095FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Data", "3.Data", "{1A3370ED-6894-4342-B982-93578A1B3EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTresCapas", "DataTresCapas\DataTresCapas.csproj", "{30BD5030-F615-42AD-BB62-E37087E1A6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityTresCapas", "EntityTresCapas\EntityTresCapas.csproj", "{A4C97378-90C6-4FA5-ABF6-77E9D8729068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinesTresCapas", "BussinesTresCapas\BussinesTresCapas.csproj", "{106E85E7-6BF2-44D4-A107-2C41B9D59C60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2E3BB18-051F-4A2B-9804-9EF01A964E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E3BB18-051F-4A2B-9804-9EF01A964E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E3BB18-051F-4A2B-9804-9EF01A964E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E3BB18-051F-4A2B-9804-9EF01A964E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30BD5030-F615-42AD-BB62-E37087E1A6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30BD5030-F615-42AD-BB62-E37087E1A6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30BD5030-F615-42AD-BB62-E37087E1A6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30BD5030-F615-42AD-BB62-E37087E1A6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C97378-90C6-4FA5-ABF6-77E9D8729068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C97378-90C6-4FA5-ABF6-77E9D8729068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C97378-90C6-4FA5-ABF6-77E9D8729068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C97378-90C6-4FA5-ABF6-77E9D8729068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106E85E7-6BF2-44D4-A107-2C41B9D59C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106E85E7-6BF2-44D4-A107-2C41B9D59C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106E85E7-6BF2-44D4-A107-2C41B9D59C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106E85E7-6BF2-44D4-A107-2C41B9D59C60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2E3BB18-051F-4A2B-9804-9EF01A964E61} = {C8E3E903-E4E3-4CE7-BFBE-BF4E85F9C1B8}
+		{30BD5030-F615-42AD-BB62-E37087E1A6E1} = {1A3370ED-6894-4342-B982-93578A1B3EA2}
+		{A4C97378-90C6-4FA5-ABF6-77E9D8729068} = {1A3370ED-6894-4342-B982-93578A1B3EA2}
+		{106E85E7-6BF2-44D4-A107-2C41B9D59C60} = {1A4A9617-B6AC-41F3-BBBE-520BA9F095FD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4D70F33-53FC-44E9-BC25-90A136A3A083}
+	EndGlobalSection
+EndGlobal

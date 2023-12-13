@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginSalon</title>
+</head>
+<body>
+    <div>
+        <p1>PAGINA DE LOS SALONES</p1>
+    </div>
+    <table style=border:solid>
+        <tr>
+            <td style=border:solid>fiIdSalon</td>
+            <td style=border:solid>fcNombreSalon</td>
+            <td style=border:solid>fcContraseña</td>
+            <td style=border:solid>fiIdTipoUsuario</td>
+            <td style=border:solid>fiIdTipoSalon</td>
+            <td style=border:solid>fbEsActivo</td>
+        </tr>
+        @*@foreach (var item in (List<ESalon>ViewData["Entidades"]))
+            {
+                <tr>
+                    <td style="border:solid">@item.fiIdSalon</td>
+                    <td style="border:solid">@item.fcNombreSalon</td>
+                    <td style="border:solid">@item.fiIdTipoUsuario</td>
+                    <td style="border:solid">@item.fiIdTipoSalon</td>
+                    <td style="border:solid">@item.fiEsActivo</td>
+                </tr>
+            }*@
+    </table>
+</body>
+</html>

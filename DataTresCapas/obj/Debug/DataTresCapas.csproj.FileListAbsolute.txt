@@ -1,0 +1,9 @@
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\bin\Debug\DataTresCapas.dll
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\bin\Debug\DataTresCapas.pdb
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\bin\Debug\EntityTresCapas.dll
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\bin\Debug\EntityTresCapas.pdb
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\obj\Debug\DataTresCapas.csproj.AssemblyReference.cache
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\obj\Debug\DataTresCapas.csproj.CoreCompileInputs.cache
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\obj\Debug\DataTresCapas.csproj.CopyComplete
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\obj\Debug\DataTresCapas.dll
+D:\Usuarios\LLuna\Downloads\appSalonFiestasTrescapas\DataTresCapas\obj\Debug\DataTresCapas.pdb
