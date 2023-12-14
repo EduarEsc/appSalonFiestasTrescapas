@@ -1,4 +1,5 @@
 ﻿using SharinganSolutions.DataTresCapas;
+using SharinganSolutions.EntityTresCapas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,37 +12,87 @@ namespace SharinganSolutions.BussinesTresCapas
     public class BUsuarioSalon
     {
 
-        public void getUsuarioSalon(int idSalon)
+        public ERespuestaUsuarioSalon getUsuarioSalon(int idSalon)
         {
-            DataTable dt = new DUsuarioSalon().getUsuarioSalon(idSalon);
+            ERespuesta obj = new DUsuarioSalon().getUsuarioSalon(idSalon);
+            ERespuestaUsuarioSalon objr = new ERespuestaUsuarioSalon();
+            List<EUsuarioSalon> list = new List<EUsuarioSalon>();
+            foreach (DataRow q in obj.Tabla.Rows)
+            {
+                EUsuarioSalon s = new EUsuarioSalon();
+                s.IdUsuarioSalon = Convert.ToInt32(q["fiIdUsuarioSalon"]);
+                s.NombreUsuario = Convert.ToString(q["fcNombreUsuario"]);
+                s.Contraseña = Convert.ToString(q["fcContraseña"]);
+                s.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
+                s.NombreSalon = Convert.ToString(q["fcNombreSalon"]);
+                s.IdTipoUsuario = Convert.ToInt32(q["fiIdTipoUsuario"]);
+                s.Descripcion = Convert.ToString(q["fcDescripcion"]);
+                s.EsActivo = Convert.ToBoolean(q["fbEsActivo"]);
+                list.Add(s);
+            }
+            objr.listUsuarioSalon = list;
+            string[] array = obj.Mensaje.Split(',');
+            objr.Mensaje = array[1].Trim();
+            objr.Codigo = Convert.ToInt32(array[0].Trim());
+            return objr;
         }
 
 
-        public void getUsuarioSalonDetalle(int idUsuarioSalon)
+        public ERespuestaUsuarioSalon getUsuarioSalonDetalle(int idUsuarioSalon)
         {
-            DataTable dt = new DUsuarioSalon().getUsuarioSalonDetalle(idUsuarioSalon);
+            ERespuesta obj = new DUsuarioSalon().getUsuarioSalonDetalle(idUsuarioSalon);
+            ERespuestaUsuarioSalon objr = new ERespuestaUsuarioSalon();
+            EUsuarioSalon s = new EUsuarioSalon();
+            foreach (DataRow q in obj.Tabla.Rows)
+            {
+                s.IdUsuarioSalon = Convert.ToInt32(q["fiIdUsuarioSalon"]);
+                s.NombreUsuario = Convert.ToString(q["fcNombreUsuario"]);
+                s.Contraseña = Convert.ToString(q["fcContraseña"]);
+                s.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
+                s.NombreSalon = Convert.ToString(q["fcNombreSalon"]);
+                s.IdTipoUsuario = Convert.ToInt32(q["fiIdTipoUsuario"]);
+                s.Descripcion = Convert.ToString(q["fcDescripcion"]);
+                s.EsActivo = Convert.ToBoolean(q["fbEsActivo"]);
+            }
+            objr.UsuarioSalon = s;
+            string[] array = obj.Mensaje.Split(',');
+            objr.Mensaje = array[1].Trim();
+            objr.Codigo = Convert.ToInt32(array[0].Trim());
+            return objr;
         }
 
 
-        public void postUsuarioSalon(string fcNombreUsuario, string fcContraseña,
+        public ERespuestaUsuarioSalon postUsuarioSalon(string fcNombreUsuario, string fcContraseña,
                                       int fiIdSalon, int fiIdTipoUsuario, bool fbEsActivo
                                      )
         {
-            new DUsuarioSalon().postUsuarioSalon(fcNombreUsuario, fcContraseña,
+            string res = new DUsuarioSalon().postUsuarioSalon(fcNombreUsuario, fcContraseña,
                                                    fiIdSalon, fiIdTipoUsuario, fbEsActivo
                                                  );
+
+            ERespuestaUsuarioSalon objr = new ERespuestaUsuarioSalon();
+            string[] array = res.Split(',');
+            objr.Mensaje = array[1].Trim();
+            objr.Codigo = Convert.ToInt32(array[0].Trim());
+            return objr;
         }
 
 
 
-        public void putUsuarioSalon(int fiIdUsuarioSalon, string fcNombreUsuario, string fcContraseña,
+        public ERespuestaUsuarioSalon putUsuarioSalon(int fiIdUsuarioSalon, string fcNombreUsuario, string fcContraseña,
                                      int fiIdSalon, int fiIdTipoUsuario, bool fbEsActivo
                                      )
         {
-            new DUsuarioSalon().putUsuarioSalon(fiIdUsuarioSalon, fcNombreUsuario, fcContraseña,
+             
+            string[] array = new DUsuarioSalon().putUsuarioSalon(fiIdUsuarioSalon, fcNombreUsuario, fcContraseña,
                                                    fiIdSalon, fiIdTipoUsuario, fbEsActivo
-                                                 );
+                                                 ).Split(',');
+            ERespuestaUsuarioSalon objr = new ERespuestaUsuarioSalon();
+            objr.Mensaje = array[1].Trim();
+            objr.Codigo = Convert.ToInt32(array[0].Trim());
+            return objr;
         }
 
+        
     }
 }

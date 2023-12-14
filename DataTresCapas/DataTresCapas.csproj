@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AES\Encryptar.cs" />
     <Compile Include="DAbstracta.cs" />
+    <Compile Include="DCatalogos.cs" />
     <Compile Include="DSalon.cs" />
     <Compile Include="DSalonDetalle.cs" />
     <Compile Include="DUsuarioSalon.cs" />

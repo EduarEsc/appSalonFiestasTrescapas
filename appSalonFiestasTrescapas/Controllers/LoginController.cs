@@ -1,4 +1,5 @@
 ﻿using SharinganSolutions.BussinesTresCapas;
+using SharinganSolutions.EntityTresCapas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,33 +11,35 @@ namespace appSalonFiestasTrescapas.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-
         public ActionResult Home()
         {
             return View();
         }
         public ActionResult LoginUsuarioSalon()
         {
-            new BUsuarioSalon().getUsuarioSalon(1);
-
-            return View("LoginUsuarioSalon");
+            ERespuestaUsuarioSalon obj =  new BUsuarioSalon().getUsuarioSalon(1);
+            obj.ListCargo = new BCatalogos().getCatalogoTipoUsuario();
+            obj.listSalon = new BCatalogos().getCatalogoSalon();
+            return View(obj);
         }
+
+
 
         public ActionResult getUsuarioSalonDetalle()
         {
+
             new BUsuarioSalon().getUsuarioSalonDetalle(1);
 
             return View("LoginUsuarioSalon");
         }
 
-
-        public ActionResult postUsuarioSalon()
-
+        [HttpPost]
+        public ActionResult postUsuarioSalon(EUsuarioSalon Usuario)
         {
-            new BUsuarioSalon().postUsuarioSalon("Gabriela", "QWAe$%", 2, 1, true);
+            new BUsuarioSalon().postUsuarioSalon(Usuario.NombreUsuario, Usuario.Contraseña,Usuario.IdSalon,Usuario.IdTipoUsuario , Usuario.EsActivo );
 
 
-            return View("LoginUsuarioSalon");
+            return RedirectToAction("LoginUsuarioSalon");
         }
 
         public ActionResult putUsuarioSalon()

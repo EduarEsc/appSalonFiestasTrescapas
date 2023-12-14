@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharinganSolutions.EntityTresCapas;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,10 +12,11 @@ namespace SharinganSolutions.DataTresCapas
     public class DUsuarioSalon : DAbstracta
     {
 
-        public DataTable getUsuarioSalon(int idSalon)
+        public ERespuesta getUsuarioSalon(int idSalon)
         {
+            ERespuesta obj = new ERespuesta();
             DataTable dt = new DataTable();
-
+            string resMensaje = string.Empty;
             using (SqlConnection con = new SqlConnection(Conexion))
             {
                 con.Open();
@@ -26,21 +28,24 @@ namespace SharinganSolutions.DataTresCapas
                     com.Parameters.Add(new SqlParameter("@IdSalon", SqlDbType.Int) { Value = idSalon });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
                     com.ExecuteNonQuery();
-                    string employeeName = com.Parameters["@Mensaje"].Value.ToString();
+                    resMensaje = com.Parameters["@Mensaje"].Value.ToString();
                     using (SqlDataAdapter da = new SqlDataAdapter(com))
                     {
                         da.Fill(dt);
                     }
                 }
             }
-            return dt;
+            obj.Tabla = dt;
+            obj.Mensaje = resMensaje;
+            return obj;
         }
 
 
-        public DataTable getUsuarioSalonDetalle(int idUsuarioSalon)
+        public ERespuesta getUsuarioSalonDetalle(int idUsuarioSalon)
         {
             DataTable dt = new DataTable();
-
+            ERespuesta obj = new ERespuesta();
+            string resMensaje = string.Empty;
             using (SqlConnection con = new SqlConnection(Conexion))
             {
                 con.Open();
@@ -52,14 +57,16 @@ namespace SharinganSolutions.DataTresCapas
                     com.Parameters.Add(new SqlParameter("@IdUsuarioSalon", SqlDbType.Int) { Value = idUsuarioSalon });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
                     com.ExecuteNonQuery();
-                    string employeeName = com.Parameters["@Mensaje"].Value.ToString();
+                    resMensaje = com.Parameters["@Mensaje"].Value.ToString();
                     using (SqlDataAdapter da = new SqlDataAdapter(com))
                     {
                         da.Fill(dt);
                     }
                 }
             }
-            return dt;
+            obj.Tabla = dt;
+            obj.Mensaje = resMensaje;
+            return obj;
         }
 
         public string postUsuarioSalon(string fcNombreUsuario, string fcContraseña,
