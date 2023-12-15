@@ -12,10 +12,6 @@ namespace appSalonFiestasTrescapas.Controllers
     {
         public ActionResult LoginSalon()
         {
-            BSalon bSalon = new BSalon();
-            List<ESalon> lsSalon = new List<ESalon>();
-            lsSalon = bSalon.getSalon();
-            ViewData["Entidades"] = lsSalon;
             return View();
         }
        

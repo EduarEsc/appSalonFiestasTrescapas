@@ -23,8 +23,6 @@ namespace appSalonFiestasTrescapas.Controllers
             return View(obj);
         }
 
-
-
         public ActionResult getUsuarioSalonDetalle()
         {
 
@@ -50,8 +48,6 @@ namespace appSalonFiestasTrescapas.Controllers
 
             return View("LoginUsuarioSalon");
         }
-
-
 
     }
 }
