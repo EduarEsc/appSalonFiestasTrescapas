@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SharinganSolutions.BussinesTresCapas
 {
+
     public class BSalon
     {
         public ERespuestaSalonList getSalon()

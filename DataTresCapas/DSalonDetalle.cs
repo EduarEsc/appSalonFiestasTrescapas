@@ -38,6 +38,7 @@ namespace SharinganSolutions.DataTresCapas
         }
         public ERespuestaSalonDet getSalonDetalle1(int fiIdDetalleSalon)
         {
+
             ERespuestaSalonDet obj = new ERespuestaSalonDet();
             string resMen = string.Empty;
             DataTable dt = new DataTable();

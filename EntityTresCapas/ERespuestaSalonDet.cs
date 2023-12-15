@@ -12,6 +12,7 @@ namespace SharinganSolutions.EntityTresCapas
         public string Mensaje { get; set; }
         public DataTable Tabla { get; set; }
     }
+
     public class ERespuestaSalonDetList
     {
         public string Mensaje { get; set; }

@@ -11,6 +11,7 @@ namespace SharinganSolutions.BussinesTresCapas
 {
     public class BCatalogoSalonDet
     {
+
         public List<ECatalogoSalonDetTipSalon> getCatalogoSalonDetTipSalon()
         {
             DataTable obj = new DCatalogosSalon().getCatalogoTipoSalon();

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SharinganSolutions.BussinesTresCapas
 {
+
     public class BCatalogoSalon
     {
         public List<ECatalogoTipoSalon> getCatalogoTipoSalon()

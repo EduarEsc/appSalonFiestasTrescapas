@@ -15,6 +15,7 @@ namespace SharinganSolutions.DataTresCapas
             DataTable dt = new DataTable();
             using(SqlConnection con = new SqlConnection(Conexion))
             {
+
                 con.Open();
                 using (SqlCommand com = new SqlCommand("CatalogosSalon_sp", con))
                 {

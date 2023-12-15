@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharinganSolutions.EntityTresCapas
 {
+
     public class ESalon
     {
         public int IdSalon { get; set; }

@@ -11,6 +11,7 @@ namespace SharinganSolutions.EntityTresCapas
         public int IdTipoSalon { get; set; }
         public string Descripcion { get; set; }
     }
+
     public class ECatalogoTipoUsuario
     {
         public int IdTipoUsuario { get; set; }
