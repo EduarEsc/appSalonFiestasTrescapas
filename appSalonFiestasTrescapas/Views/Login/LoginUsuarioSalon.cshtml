@@ -52,19 +52,19 @@
                     <tbody>
                         @foreach (var item in @Model.listUsuarioSalon)
                         {
-                            <tr>
-                                <td>@item.IdUsuarioSalon</td>
-                                <td>@item.NombreUsuario</td>
-                                <td>*****</td>
-                                <td>@item.NombreSalon</td>
-                                <td>@item.Descripcion</td>
-                                <td>@item.EsActivo</td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-link-actualiza" data-userid="@item.IdUsuarioSalon">
-                                        <i class="bi bi-pencil"></i> Actualizar
-                                    </a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>@item.IdUsuarioSalon</td>
+                            <td>@item.NombreUsuario</td>
+                            <td>*****</td>
+                            <td>@item.NombreSalon</td>
+                            <td>@item.Descripcion</td>
+                            <td>@item.EsActivo</td>
+                            <td>
+                                <a href="#" class="btn btn-warning btn-link-actualiza" data-userid="@item.IdUsuarioSalon">
+                                    <i class="bi bi-pencil"></i> Actualizar
+                                </a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
@@ -82,35 +82,35 @@
                 <div class="modal-body">
                     @using (Html.BeginForm("postUsuarioSalon", "Login", FormMethod.Post))
                     {
-                        <div class="form-group">
-                            <label for="NombreUsuario">Nombre Usuario:</label>
-                            <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" placeholder="Nombre Usuario" required>
-                        </div>
-                        <label for="salonSelect">Salón:</label>
-                        <select class="form-select" id="salonSelect" name="IdSalon" aria-label="Default select example" required>
-                            <option selected>Selecciona un salón</option>
-                            @foreach (var item in @Model.listSalon)
+                    <div class="form-group">
+                        <label for="NombreUsuario">Nombre Usuario:</label>
+                        <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" placeholder="Nombre Usuario" required>
+                    </div>
+                    <label for="salonSelect">Salón:</label>
+                    <select class="form-select" id="salonSelect" name="IdSalon" aria-label="Default select example" required>
+                        <option selected>Selecciona un salón</option>
+                        @foreach (var item in @Model.listSalon)
                             {
-                                <option value="@item.IdSalon">@item.NombreSalon</option>
+                        <option value="@item.IdSalon">@item.NombreSalon</option>
                             }
-                        </select>
-                        <label for="Cargo">Cargo:</label>
-                        <select class="form-select" id="Cargo" name="IdTipoUsuario" aria-label="Default select example" required>
-                            <option selected>Selecciona Cargo</option>
-                            @foreach (var item in @Model.ListCargo)
+                    </select>
+                    <label for="Cargo">Cargo:</label>
+                    <select class="form-select" id="Cargo" name="IdTipoUsuario" aria-label="Default select example" required>
+                        <option selected>Selecciona Cargo</option>
+                        @foreach (var item in @Model.ListCargo)
                             {
-                                <option value="@item.IdTipoUsuario">@item.Descripcion</option>
+                        <option value="@item.IdTipoUsuario">@item.Descripcion</option>
                             }
-                        </select>
-                        <div class="form-group">
-                            <label for="Contraseña">Password</label>
-                            <input type="password" class="form-control" id="Contraseña" name="Contraseña" placeholder="Password" required>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="EsActivo" name="EsActivo" value="true">
-                            <label for="EsActivo">Activo</label>
-                        </div>
-                        <button type="submit" id="btnAgregar" class="btn btn-primary" disabled>Agregar</button>
+                    </select>
+                    <div class="form-group">
+                        <label for="Contraseña">Password</label>
+                        <input type="password" class="form-control" id="Contraseña" name="Contraseña" placeholder="Password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="EsActivo" name="EsActivo" value="true">
+                        <label for="EsActivo">Activo</label>
+                    </div>
+                    <button type="submit" id="btnAgregar" class="btn btn-primary" disabled>Agregar</button>
                     }
                 </div>
             </div>
@@ -127,36 +127,36 @@
                 <div class="modal-body">
                     @using (Html.BeginForm("putUsuarioSalon", "Login", FormMethod.Post))
                     {
-                        @Html.Hidden("IdUsuarioSalon")
-                        <div class="form-group">
-                            <label for="NombreUsuario">Nombre Usuario:</label>
-                            <input type="text" class="form-control" id="NombreUsuarioUp" name="NombreUsuario" required>
-                        </div>
-                        <label for="salonUp">Salón:</label>
-                        <select class="form-select" id="salonUp" name="IdSalon" aria-label="Default select example" required>
-                            <option selected>Selecciona un salón</option>
-                            @foreach (var l in @Model.listSalon)
+                    @Html.Hidden("IdUsuarioSalon")
+                    <div class="form-group">
+                        <label for="NombreUsuario">Nombre Usuario:</label>
+                        <input type="text" class="form-control" id="NombreUsuarioUp" name="NombreUsuario" required>
+                    </div>
+                    <label for="salonUp">Salón:</label>
+                    <select class="form-select" id="salonUp" name="IdSalon" aria-label="Default select example" required>
+                        <option selected>Selecciona un salón</option>
+                        @foreach (var l in @Model.listSalon)
                             {
-                                <option value="@l.IdSalon" )>@l.NombreSalon</option>
+                        <option value="@l.IdSalon" )>@l.NombreSalon</option>
                             }
-                        </select>
-                        <label for="Cargo">Cargo:</label>
-                        <select class="form-select" id="CargoUp" name="IdTipoUsuario" aria-label="Default select example" required>
-                            <option selected>Selecciona Cargo</option>
-                            @foreach (var c in @Model.ListCargo)
+                    </select>
+                    <label for="Cargo">Cargo:</label>
+                    <select class="form-select" id="CargoUp" name="IdTipoUsuario" aria-label="Default select example" required>
+                        <option selected>Selecciona Cargo</option>
+                        @foreach (var c in @Model.ListCargo)
                             {
-                                <option value="@c.IdTipoUsuario">@c.Descripcion</option>
+                        <option value="@c.IdTipoUsuario">@c.Descripcion</option>
                             }
-                        </select>
-                        <div class="form-group">
-                            <label for="Contraseña">Password</label>
-                            <input type="password" class="form-control" id="ContraseñaUp" name="Contraseña" placeholder="Password" required>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="EsActivoUp" name="EsActivo" value="true">
-                            <label for="EsActivo">Activo</label>
-                        </div>
-                        <button id="btnActualizar" type="submit" class="btn btn-primary" disabled>Actualizar</button>
+                    </select>
+                    <div class="form-group">
+                        <label for="Contraseña">Password</label>
+                        <input type="password" class="form-control" id="ContraseñaUp" name="Contraseña" placeholder="Password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="EsActivoUp" name="EsActivo" value="true">
+                        <label for="EsActivo">Activo</label>
+                    </div>
+                    <button id="btnActualizar" type="submit" class="btn btn-primary" disabled>Actualizar</button>
                     }
                 </div>
             </div>
