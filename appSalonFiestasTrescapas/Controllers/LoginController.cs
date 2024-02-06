@@ -23,14 +23,12 @@ namespace appSalonFiestasTrescapas.Controllers
             return View(obj);
         }
 
-
-        [HttpGet]
-        public ActionResult getUsuarioSalonDetalle(int id)
+        public ActionResult getUsuarioSalonDetalle()
         {
 
-            ERespuestaUsuarioSalon obj =  new BUsuarioSalon().getUsuarioSalonDetalle(id);
-            var usuario = obj.UsuarioSalon;
-            return Json(usuario, JsonRequestBehavior.AllowGet);
+            new BUsuarioSalon().getUsuarioSalonDetalle(1);
+
+            return View("LoginUsuarioSalon");
         }
 
         [HttpPost]
@@ -42,15 +40,14 @@ namespace appSalonFiestasTrescapas.Controllers
             return RedirectToAction("LoginUsuarioSalon");
         }
 
-        [HttpPost]
-        public ActionResult putUsuarioSalon(EUsuarioSalon Usuario)
+        public ActionResult putUsuarioSalon()
+
         {
-            new BUsuarioSalon().putUsuarioSalon(Usuario.IdUsuarioSalon, Usuario.NombreUsuario, Usuario.Contraseña, Usuario.IdSalon, Usuario.IdTipoUsuario, Usuario.EsActivo);
+            new BUsuarioSalon().putUsuarioSalon(36, "Gabriela", "QWAe$%", 2, 1, true);
 
-            return RedirectToAction("LoginUsuarioSalon");
+
+            return View("LoginUsuarioSalon");
         }
-
-
 
     }
 }

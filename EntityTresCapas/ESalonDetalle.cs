@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace SharinganSolutions.EntityTresCapas
 {
+
     public class ESalonDetalle
     {
-        public int fiIdDetalleSalon { get; set; }
-        public string fcCorreo { get; set; }
-        public string fcTelefono { get; set; }
-        public string fcCalle { get; set; }
-        public string fcColonia { get; set; }
-        public string fcDelegacion { get; set; }
-        public string fcCPostal { get; set; }
-        public string fcReferencias { get; set; }
-        public string fcEntreCalles { get; set; }
-        public int fiIdSalon { get; set; }
-        public int fiCapacidad { get; set; }
+        public int IdDetalleSalon { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
+        public string Calle { get; set; }
+        public string Colonia { get; set; }
+        public string Delegacion { get; set; }
+        public string CPostal { get; set; }
+        public string Referencias { get; set; }
+        public string EntreCalles { get; set; }
+        public int IdSalon { get; set; }
+        public int Capacidad { get; set; }
     }
 }

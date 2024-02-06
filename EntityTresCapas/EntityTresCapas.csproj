@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ECatalogos.cs" />
+    <Compile Include="ECatalogoSalon.cs" />
+    <Compile Include="ECatalogoSalonDet.cs" />
     <Compile Include="ERespuesta.cs" />
+    <Compile Include="ERespuestaSalon.cs" />
+    <Compile Include="ERespuestaSalonDet.cs" />
     <Compile Include="ESalon.cs" />
     <Compile Include="ESalonDetalle.cs" />
     <Compile Include="EUsuarioSalon.cs" />

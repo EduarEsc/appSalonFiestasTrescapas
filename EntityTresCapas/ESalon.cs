@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace SharinganSolutions.EntityTresCapas
 {
+
     public class ESalon
     {
-        public int fiIdSalon { get; set; }
-        public string fcNombreSalon { get; set; }
-        public string fcContraseña { get; set; }
-        public int fiIdTipoUsuario { get; set; }
-        public int fiIdTipoSalon { get; set; }
-        public bool fbEsActivo { get; set; }
+        public int IdSalon { get; set; }
+        public string NombreSalon { get; set; }
+        public string Contraseña { get; set; }
+        public int IdTipoUsuario { get; set; }
+        public int IdTipoSalon { get; set; }
+        public bool EsActivo { get; set; }
     }
 }

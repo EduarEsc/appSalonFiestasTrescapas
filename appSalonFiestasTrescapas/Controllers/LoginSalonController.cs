@@ -10,14 +10,42 @@ namespace appSalonFiestasTrescapas.Controllers
 {
     public class LoginSalonController : Controller
     {
-        public ActionResult LoginSalon()
+        public ActionResult LoginSalonHome()
         {
-            BSalon bSalon = new BSalon();
-            List<ESalon> lsSalon = new List<ESalon>();
-            lsSalon = bSalon.getSalon();
-            ViewData["Entidades"] = lsSalon;
             return View();
         }
-       
+        public ActionResult LoginSalon()
+        {
+            ERespuestaSalonList obj = new BSalon().getSalon();
+            obj.listTipoSalon = new BCatalogoSalon().getCatalogoTipoSalon();
+            obj.listTipoUsuario = new BCatalogoSalon().getCatalogoTipoUsuario();
+            return View(obj);
+        }
+
+        public ActionResult getSalonDetalle()
+        {
+
+            new BSalon().getSalonDetalle(1);
+
+            return View("LoginSalon");
+        }
+
+        [HttpPost]
+        public ActionResult postSalon(ESalon Salon)
+        {
+            new BSalon().postSalon(Salon.NombreSalon, Salon.Contraseña, Salon.IdTipoUsuario, Salon.IdSalon, Salon.EsActivo);
+
+
+            return RedirectToAction("LoginSalon");
+        }
+
+        public ActionResult putSalon()
+
+        {
+            new BSalon().putSalon("Juan", "hui", 1, 1, 0);
+
+
+            return View("LoginSalon");
+        }
     }
 }
