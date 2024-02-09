@@ -46,6 +46,7 @@ rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="a
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
                         @using (Html.BeginForm("getAccesoUsuarioSalon", "Login", FormMethod.Post))
                         {
                             <div class="form-group">
@@ -93,6 +94,7 @@ C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="a
         $('#btnAccesoUsuarioSalon').prop('disabled', !formCompleto);
     }
     </script>
+
 
 
 </body>
