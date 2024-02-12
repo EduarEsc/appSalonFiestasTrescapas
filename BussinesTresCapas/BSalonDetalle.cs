@@ -12,9 +12,9 @@ namespace SharinganSolutions.BussinesTresCapas
 
     public class BSalonDetalle
     {
-        public ERespuestaSalonDetList getSalonDetalle()
+        public ERespuestaSalonDetList getSalonDetalle(int IdDetalle)
         {
-            ERespuestaSalonDet obj = new DSalonDetalle().getSalonDetalle();
+            ERespuestaSalonDet obj = new DSalonDetalle().getSalonDetalle(IdDetalle);
             ERespuestaSalonDetList objr = new ERespuestaSalonDetList();
             List<ESalonDetalle> list = new List<ESalonDetalle>();
             foreach (DataRow q in obj.Tabla.Rows)
@@ -27,13 +27,13 @@ namespace SharinganSolutions.BussinesTresCapas
                 d.Colonia = Convert.ToString(q["fcColonia"]);
                 d.Delegacion = Convert.ToString(q["fcDelegacion"]);
                 d.CPostal = Convert.ToString(q["fcCPostal"]);
-                d.Referencias = Convert.ToString(q["fcReferencias"]);
+                d.Referencias = Convert.ToString(q["fcReferencia"]);
                 d.EntreCalles = Convert.ToString(q["fcEntreCalles"]);
                 d.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
                 d.Capacidad = Convert.ToInt32(q["fiCapacidad"]);
                 list.Add(d);
             }
-            objr.listDetalleSalones = list;
+            objr.listcDetalleSalones = list;
             string[] array = obj.Mensaje.Split(',');
             objr.Mensaje = array[1].Trim();
             objr.Codigo = Convert.ToInt32(array[0].Trim());
@@ -60,7 +60,7 @@ namespace SharinganSolutions.BussinesTresCapas
                 d.Capacidad = Convert.ToInt32(q["fiCapacidad"]);
                 list.Add(d);
             }
-            objr.listDetalleSalones = list;
+            objr.listcDetalleSalones = list;
             string[] array = obj.Mensaje.Split(',');
             objr.Mensaje = array[1].Trim();
             objr.Codigo = Convert.ToInt32(array[0].Trim());

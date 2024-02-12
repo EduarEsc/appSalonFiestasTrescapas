@@ -11,7 +11,7 @@ namespace SharinganSolutions.BussinesTresCapas
 {
     public class BCatalogoSalonDet
     {
-
+       
         public List<ECatalogoSalonDetTipSalon> getCatalogoSalonDetTipSalon()
         {
             DataTable obj = new DCatalogosSalon().getCatalogoTipoSalon();
@@ -27,7 +27,7 @@ namespace SharinganSolutions.BussinesTresCapas
         }
         public List<ECatalogoSalonDetCapacidad> getCatalogoSalonDetCapacidad()
         {
-            DataTable obj = new DCatalogosSalon().getCatalogoTipoUsuario();
+            DataTable obj = new DCatalogosSalon().getCatalogoCantidad();
             List<ECatalogoSalonDetCapacidad> list = new List<ECatalogoSalonDetCapacidad>();
             foreach (DataRow q in obj.Rows)
             {

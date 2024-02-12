@@ -16,7 +16,7 @@ namespace SharinganSolutions.EntityTresCapas
     public class ERespuestaSalonDetList
     {
         public string Mensaje { get; set; }
-        public List<ESalonDetalle> listDetalleSalones { get; set; }
+        public List<ESalonDetalle> listcDetalleSalones { get; set; }
         public ESalonDetalle DetSalon { get; set; }
         public List<ECatalogoSalonDetTipSalon> listTipoSalon { get; set; }
         public List<ECatalogoSalonDetCapacidad> listCapacidad { get; set; }

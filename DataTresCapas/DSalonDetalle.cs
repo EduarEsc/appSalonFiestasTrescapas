@@ -11,7 +11,7 @@ namespace SharinganSolutions.DataTresCapas
 {
     public class DSalonDetalle : DAbstracta
     {
-        public ERespuestaSalonDet getSalonDetalle()
+        public ERespuestaSalonDet getSalonDetalle(int IdDetalle)
         {
             ERespuestaSalonDet obj = new ERespuestaSalonDet();
             string resMens = string.Empty;
@@ -23,8 +23,10 @@ namespace SharinganSolutions.DataTresCapas
                 {
                     com.CommandType = CommandType.StoredProcedure;
                     com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 1 });
+                    com.Parameters.Add(new SqlParameter("@fiIdDetalleSalon", SqlDbType.Int) { Value = IdDetalle });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
-                    resMens = com.Parameters["@Mesnaje"].Value.ToString();
+                    com.ExecuteNonQuery();
+                    resMens = com.Parameters["@Mensaje"].Value.ToString();
                     using (SqlDataAdapter da = new SqlDataAdapter(com))
                     {
                         da.Fill(dt);
