@@ -93,19 +93,6 @@ namespace SharinganSolutions.BussinesTresCapas
             return objr;
         }
 
-
-        public ERespuestaUsuarioSalon AccesoUsuarioSalon(int fiIdUsuarioSalon, string fcNombreUsuario, string fcContraseña,
-                                     int fiIdSalon, int fiIdTipoUsuario, bool fbEsActivo
-                                     )
-        {
-
-            string[] array = new DUsuarioSalon().AccesoUsuarioSalon(fiIdUsuarioSalon, fcNombreUsuario, fcContraseña,
-                                                   fiIdSalon, fiIdTipoUsuario, fbEsActivo
-                                                 ).Split(',');
-            ERespuestaUsuarioSalon objr = new ERespuestaUsuarioSalon();
-            objr.Mensaje = array[1].Trim();
-            objr.Codigo = Convert.ToInt32(array[0].Trim());
-            return objr;
-        }
+        
     }
 }

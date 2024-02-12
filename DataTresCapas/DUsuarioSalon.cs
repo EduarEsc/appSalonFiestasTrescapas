@@ -96,37 +96,6 @@ namespace SharinganSolutions.DataTresCapas
         }
 
         public string putUsuarioSalon(int idUsuarioSalon, string fcNombreUsuario, string fcContraseña,
-                                      int fiIdSalon, int fiIdTipoUsuario, bool fbEsActivo)
-
-        {
-            string res = string.Empty;
-            using (SqlConnection con = new SqlConnection(Conexion))
-            {
-                con.Open();
-                using (SqlCommand com = new SqlCommand("UsuarioSalon_sp", con))
-                {
-                    com.CommandType = CommandType.StoredProcedure;
-                    com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 4 });
-                    com.Parameters.Add(new SqlParameter("@NombreUsuario", SqlDbType.NVarChar, 255) { Value = fcNombreUsuario });
-                    com.Parameters.Add(new SqlParameter("@Contraseña", SqlDbType.NVarChar, 255) { Value = fcContraseña });
-                    com.Parameters.Add(new SqlParameter("@IdSalon", SqlDbType.Int) { Value = fiIdSalon });
-                    com.Parameters.Add(new SqlParameter("@IdTipoUsuario", SqlDbType.Int) { Value = fiIdTipoUsuario });
-                    com.Parameters.Add(new SqlParameter("@EsActivo", SqlDbType.Bit) { Value = fbEsActivo });
-                    com.Parameters.Add(new SqlParameter("@IdUsuarioSalon", SqlDbType.Int) { Value = idUsuarioSalon });
-                    com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
-                    com.ExecuteNonQuery();
-                    res = com.Parameters["@Mensaje"].Value.ToString();
-                }
-                con.Close();
-            }
-            return res;
-
-
-
-        }
-
-
-        public string AccesoUsuarioSalon(int idUsuarioSalon, string fcNombreUsuario, string fcContraseña,
                                       int fiIdSalon, int fiIdTipoUsuario, bool fbEsActivo
                                      )
         {
@@ -152,8 +121,5 @@ namespace SharinganSolutions.DataTresCapas
             }
             return res;
         }
-
-
-
     }
 }
