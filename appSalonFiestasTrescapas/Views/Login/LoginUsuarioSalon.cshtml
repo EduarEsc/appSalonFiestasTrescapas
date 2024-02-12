@@ -55,7 +55,7 @@
                             <tr>
                                 <td>@item.IdUsuarioSalon</td>
                                 <td>@item.NombreUsuario</td>
-                                <td>*****</td>
+                                <td>@item.Contraseña</td>
                                 <td>@item.NombreSalon</td>
                                 <td>@item.Descripcion</td>
                                 <td>@item.EsActivo</td>
@@ -195,7 +195,7 @@
                     $('#CargoUp').val(data.IdTipoUsuario);
                     $('#ContraseñaUp').val(data.Contraseña);
                     $('#EsActivoUp').prop('checked', data.EsActivo);
-                    $('#IdUsuarioSalon').val(data.IdUsuarioSalon);
+
                     $('#actualizarModal').modal('show');
                 },
                 error: function () {
