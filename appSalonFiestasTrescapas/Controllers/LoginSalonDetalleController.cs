@@ -16,7 +16,7 @@ namespace appSalonFiestasTrescapas.Controllers
         }
         public ActionResult LoginSalonDetalle()
         {
-            ERespuestaSalonDetList obj = new BSalonDetalle().getSalonDetalle();
+            ERespuestaSalonDetList obj = new BSalonDetalle().getSalonDetalle(1);
             obj.listTipoSalon = new BCatalogoSalonDet().getCatalogoSalonDetTipSalon();
             obj.listCapacidad = new BCatalogoSalonDet().getCatalogoSalonDetCapacidad();
             return View(obj);
