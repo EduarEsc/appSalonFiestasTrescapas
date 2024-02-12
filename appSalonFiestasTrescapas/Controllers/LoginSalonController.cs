@@ -42,7 +42,7 @@ namespace appSalonFiestasTrescapas.Controllers
         public ActionResult putSalon()
 
         {
-            new BSalon().putSalon(1,"Juan", "hui", 1, 1, true);
+            new BSalon().putSalon("Juan", "hui", 1, 1, 0);
 
 
             return View("LoginSalon");
