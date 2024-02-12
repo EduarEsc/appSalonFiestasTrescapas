@@ -47,20 +47,6 @@ namespace appSalonFiestasTrescapas.Controllers
 
             return View("LoginSalon");
         }
-        public ActionResult AccesoUsuarioSalon()
-        {
-            //new BUsuarioSalon().AccesoUsuarioSalon(Usuario.IdUsuarioSalon, Usuario.NombreUsuario, Usuario.Contraseña, Usuario.IdSalon, Usuario.IdTipoUsuario, Usuario.EsActivo);
-
-
-            return View();
-        }
-
-
-        [HttpPost]
-        public ActionResult getAccesoUsuarioSalon(EUsuarioSalon Usuario)
-        {
-
-            return RedirectToAction("AccesoUsuarioSalon");
-        }
-        }
+      
+    }
 }

@@ -118,7 +118,7 @@
     <Content Include="Views\LoginSalonDetalle\LoginSalonDetalle.cshtml" />
     <Content Include="Views\LoginSalon\LoginSalon.cshtml" />
     <Content Include="Views\Login\Home.cshtml" />
-    <Content Include="Views\LoginSalon\AccesoUsuarioSalon.cshtml" />
+    <Content Include="Views\Login\AccesoUsuarioSalon.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
