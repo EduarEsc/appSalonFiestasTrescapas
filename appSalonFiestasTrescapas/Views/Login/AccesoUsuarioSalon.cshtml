@@ -23,16 +23,17 @@ rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="a
 
                             <div class="form-group">
                                 <label for="IdUsuarioSalon">Id Usuario Salon</label>
-                                <input type="text" class="form-control" id="IdUsuarioSalon" name="IdUsuarioSalon"  pattern="[0-9]+" title="Ingresa solo números" placeholder="IdUsuarioSalon" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                <input type="text" class="form-control" id="IdUsuarioSalon" name="IdUsuarioSalon" pattern="[0-9]+" title="Ingresa solo números" placeholder="IdUsuarioSalon" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                             </div>
 
 
                             <div class="form-group">
                                 <label for="Contraseña">Password:</label>
-                                <input type="password" class="form-control" id="Contraseña" name="Contraseña" placeholder="Password" required>
+                                <input type="password" class="form-control" id="password" name="Contraseña" placeholder="Password" required>
                             </div>
+
                             <br />
-                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                            <button type="submit" id="IniciarSesion" class="btn btn-primary" disabled>Iniciar Sesión</button>
                         }
                     </div>
                 </div>
@@ -45,13 +46,14 @@ C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="a
 
     <script>
         $(document).ready(function () {
-            $('#NombreUsuario, #Contraseña').on('input', ValidacionAccesoUsuarioSalon);
-            $('#AccesoUsuarioSalonForm').on('shown.bs.modal', ValidacionAccesoUsuarioSalon);
+            $('#IdUsuarioSalon, #password').on('input', ValidacionDatos);
+
         });
-        function ValidacionAccesoUsuarioSalon() {
-            var formCompleto = $('#NombreUsuario').val().trim() !== '' &&
-                $('#Contraseña').val().trim() !== '';
-            $('#btnAccesoUsuarioSalon').prop('disabled', !formCompleto);
+        function ValidacionDatos() {
+           var trueorfalse = $('#IdUsuarioSalon').val().trim() !== '' && 
+               $('#password').val().trim() !== '';
+               $('#IniciarSesion').prop('disabled', !trueorfalse);
+
         }
     </script>
 </body>
