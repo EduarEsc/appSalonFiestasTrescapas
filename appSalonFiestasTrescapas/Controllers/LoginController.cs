@@ -61,8 +61,13 @@ namespace appSalonFiestasTrescapas.Controllers
         [HttpPost]
         public ActionResult getAccesoUsuarioSalon(EUsuarioSalon Usuario)
         {
+            
+           bool respuesta = new BAccesoUsuarioSalon().Accesousuarios(Usuario.IdUsuarioSalon, Usuario.Contraseña);
+
+
 
             return RedirectToAction("AccesoUsuarioSalon");
+
         }
 
     }
