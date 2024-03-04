@@ -17,31 +17,30 @@
                 <div class="card">
                     <div class="card-header">Acceso UsuarioSalon</div>
                     <div class="card-body">
-                        @using (Html.BeginForm("getAccesoUsuarioSalon", "Login", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <label for="IdUsuarioSalon">Id Usuario Salon</label>
-                                <input type="text" class="form-control" id="IdUsuarioSalon" name="IdUsuarioSalon" pattern="[0-9]+" title="Ingresa solo números" placeholder="IdUsuarioSalon" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                            </div>
 
-                            <div class="form-group">
-                                <label for="Contraseña">Password:</label>
-                                <input type="password" class="form-control" id="password" name="Contraseña" placeholder="Password" required>
-                            </div>
+                        <div class="form-group">
+                            <label for="IdUsuarioSalon">Id Usuario Salon</label>
+                            <input type="text" class="form-control" id="IdUsuarioSalon" name="IdUsuarioSalon" pattern="[0-9]+" title="Ingresa solo números" placeholder="IdUsuarioSalon" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                        </div>
 
-                            <br />
+                        <div class="form-group">
+                            <label for="Contraseña">Password:</label>
+                            <input type="password" class="form-control" id="password" name="Contraseña" placeholder="Password" required>
+                        </div>
 
-                            <button type="submit" class="btn btn-primary" id="IniciarSesion" disabled data-bs-toggle="modal" data-bs-target="#Iniciarsesion">
-                                Iniciar Sesión
-                            </button>
-                        }
+                        <br />
+
+                        <button type="button" class="btn btn-primary" id="IniciarSesion" disabled>
+                            Iniciar Sesión
+                        </button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="Iniciarsesion" tabindex="-1" aria-labelledby="iniciars" aria-hidden="true">
+    <div class="modal fade" id="IniciarsesionModal" tabindex="-1" aria-labelledby="iniciars" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -61,15 +60,40 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-    <script>$(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             $('#IdUsuarioSalon, #password').on('input', ValidacionDatos);
+
+            $('#IniciarSesion').on('click', function () {
+                validarUsuario();
+            });
         });
 
         function ValidacionDatos() {
             var trueorfalse = $('#IdUsuarioSalon').val().trim() !== '' &&
-                              $('#password').val().trim() !== '';
+                $('#password').val().trim() !== '';
             $('#IniciarSesion').prop('disabled', !trueorfalse);
-        }</script>
+        }
+
+        function validarUsuario() {
+            
+            $.ajax({
+                url: '/Login/getAccesoUsuarioSalon',
+                type: 'POST',
+                data: { IdUsuarioSalon: $('#IdUsuarioSalon').val().trim(), Passwor: $('#password').val().trim() },
+                success: function (data) {
+                    if (data == true) {
+                        window.location.href = '/PaginaPrincipal/PaginaPrincipal';
+                    } else {
+                        $('#IniciarsesionModal').modal('show');
+                    }
+                },
+                error: function () {
+                    console.log('Error al obtener datos del usuario.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 
