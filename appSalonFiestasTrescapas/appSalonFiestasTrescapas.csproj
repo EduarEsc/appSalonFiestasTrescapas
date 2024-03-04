@@ -102,6 +102,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginSalonController.cs" />
     <Compile Include="Controllers\LoginSalonDetalleController.cs" />
+    <Compile Include="Controllers\PaginaPrincipalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -119,6 +120,7 @@
     <Content Include="Views\LoginSalon\LoginSalon.cshtml" />
     <Content Include="Views\Login\Home.cshtml" />
     <Content Include="Views\Login\AccesoUsuarioSalon.cshtml" />
+    <Content Include="Views\PaginaPrincipal\PaginaPrincipal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
