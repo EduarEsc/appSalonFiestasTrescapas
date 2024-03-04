@@ -96,6 +96,8 @@ namespace SharinganSolutions.DataTresCapas
             }
             return resMen;
         }
+
+
         public string putSalonDetalle(string fcCorreo, string fcTelefono,
                                       string fcCalle, string fcColonia, string fcDelegacion,
                                       string fcCPostal, string fcReferencias,

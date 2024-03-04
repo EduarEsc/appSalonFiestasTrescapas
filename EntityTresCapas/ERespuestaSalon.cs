@@ -21,6 +21,7 @@ namespace SharinganSolutions.EntityTresCapas
         public List<ECatalogoTipoSalon> listTipoSalon { get; set; }
         public List<ECatalogoTipoUsuario> listTipoUsuario{ get; set; }
         public int Codigo { get; set; }
+        public List<ECatalogoSalonDetCapacidad> listCapacidad { get; set; }
     }
 
 }

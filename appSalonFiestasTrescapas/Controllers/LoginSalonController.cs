@@ -19,6 +19,7 @@ namespace appSalonFiestasTrescapas.Controllers
             ERespuestaSalonList obj = new BSalon().getSalon();
             obj.listTipoSalon = new BCatalogoSalon().getCatalogoTipoSalon();
             obj.listTipoUsuario = new BCatalogoSalon().getCatalogoTipoUsuario();
+            obj.listCapacidad = new BCatalogoSalonDet().getCatalogoSalonDetCapacidad();
             return View(obj);
         }
 
@@ -33,7 +34,13 @@ namespace appSalonFiestasTrescapas.Controllers
         [HttpPost]
         public ActionResult postSalon(ESalon Salon)
         {
-            new BSalon().postSalon(Salon.NombreSalon, Salon.Contraseña, Salon.IdTipoUsuario, Salon.IdSalon, Salon.EsActivo);
+            ERespuestaSalonList obj  = new ERespuestaSalonList();
+            obj = new BSalon().postSalon(Salon.NombreSalon, Salon.Contraseña, Salon.IdTipoUsuario, Salon.IdTipoSalon, Salon.EsActivo);
+
+
+            new BSalonDetalle().postSalonDetalle(Salon.Correo, Salon.Telefono, Salon.Calle, Salon.Colonia,
+                                                 Salon.Delegacion, Salon.CPostal, Salon.Referencias,
+                                                 Salon.EntreCalles, obj.Codigo, Salon.Capacidad);
 
 
             return RedirectToAction("LoginSalon");

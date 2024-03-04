@@ -81,7 +81,7 @@ namespace SharinganSolutions.DataTresCapas
                     com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 3 });
                     com.Parameters.Add(new SqlParameter("@fcNombreSalon", SqlDbType.NVarChar, 200) { Value = fcNombreSalon });
                     com.Parameters.Add(new SqlParameter("@fcContraseña", SqlDbType.NVarChar, 200) { Value = fcContraseña });
-                    com.Parameters.Add(new SqlParameter("@fcIdTipoUsuario", SqlDbType.Int) { Value = fiIdTipoUsuario });
+                    com.Parameters.Add(new SqlParameter("@fiIdTipoUsuario", SqlDbType.Int) { Value = fiIdTipoUsuario });
                     com.Parameters.Add(new SqlParameter("@fiIdTipoSalon", SqlDbType.Int) { Value = fiIdTipoSalon });
                     com.Parameters.Add(new SqlParameter("@fbEsActivo", SqlDbType.Bit) { Value = fbEsActivo });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
