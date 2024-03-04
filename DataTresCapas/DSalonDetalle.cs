@@ -53,6 +53,7 @@ namespace SharinganSolutions.DataTresCapas
                     com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 2 });
                     com.Parameters.Add(new SqlParameter("@fiIdDetalleSalon", SqlDbType.Int) { Value = fiIdDetalleSalon });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
+                    com.ExecuteNonQuery();
                     resMen = com.Parameters["@Mensaje"].Value.ToString();
                     using (SqlDataAdapter da = new SqlDataAdapter(com))
                     {
@@ -90,6 +91,7 @@ namespace SharinganSolutions.DataTresCapas
                     com.Parameters.Add(new SqlParameter("@fiIdSalon", SqlDbType.Int) { Value = fiIdSalon });
                     com.Parameters.Add(new SqlParameter("@fiIdCapacidad", SqlDbType.Int) { Value = fiIdCapacidad });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
+                    com.ExecuteNonQuery();
                     resMen = com.Parameters["@Mensaje"].Value.ToString();
                 }
                 con.Close();
@@ -123,6 +125,7 @@ namespace SharinganSolutions.DataTresCapas
                     com.Parameters.Add(new SqlParameter("@fiIdSalon", SqlDbType.Int) { Value = fiIdSalon });
                     com.Parameters.Add(new SqlParameter("@fiIdCapacidad", SqlDbType.Int) { Value = fiIdCapacidad });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
+                    com.ExecuteNonQuery();
                     resMen = com.Parameters["@Mensaje"].Value.ToString();
                 }
                 con.Close();
