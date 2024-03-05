@@ -35,27 +35,22 @@ namespace SharinganSolutions.BussinesTresCapas
             objr.Codigo = Convert.ToInt32(array[0].Trim());
             return objr;
         }
-        public ERespuestaSalonList getSalonDetalle(int fiIdSalon)
+        public ESalon getSalonDetalle(int fiIdSalon)
         {
             ERespuestaSalon obj = new DSalon().getSalonDetalle(fiIdSalon);
-            ERespuestaSalonList objr = new ERespuestaSalonList();
-            List<ESalon> list = new List<ESalon>();
+            ESalon s = new ESalon();
             foreach (DataRow q in obj.Tabla.Rows)
             {
-                ESalon s = new ESalon();
+                
                 s.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
                 s.NombreSalon = Convert.ToString(q["fcNombreSalon"]);
                 s.Contraseña = Convert.ToString(q["fcContraseña"]);
                 s.IdTipoUsuario = Convert.ToInt32(q["fiIdTipoUsuario"]);
                 s.IdTipoSalon = Convert.ToInt32(q["fiIdTipoSalon"]);
                 s.EsActivo = Convert.ToBoolean(q["fbEsActivo"]);
-                list.Add(s);
             }
-            objr.listSalones = list;
-            string[] array = obj.Mensaje.Split(',');
-            objr.Mensaje = array[1].Trim();
-            objr.Codigo = Convert.ToInt32(array[0].Trim());
-            return objr;
+            
+            return s;
         }
         public ERespuestaSalonList postSalon(string fcNombreSalon, string fcContraseña,
                                              int fiIdTipoUsuario, int fiIdTipoSalon,

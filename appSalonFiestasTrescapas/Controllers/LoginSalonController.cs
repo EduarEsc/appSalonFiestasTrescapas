@@ -22,13 +22,17 @@ namespace appSalonFiestasTrescapas.Controllers
             obj.listCapacidad = new BCatalogoSalonDet().getCatalogoSalonDetCapacidad();
             return View(obj);
         }
-
-        public ActionResult getSalonDetalle()
+        [HttpGet]
+        public ActionResult getSalonDetalle(int Id)
         {
 
-            new BSalon().getSalonDetalle(1);
-
-            return View("LoginSalon");
+            ESalon obj  = new BSalon().getSalonDetalle(Id); // vas por salon 
+            ESalon obj1 = new BSalon().getSalonDetalle(Id); // vas por detalle 
+            ESalon res = new ESalon();
+            // ejemplo 
+            res.Contraseña = obj.Contraseña;
+            res.IdSalon = obj1.IdSalon;
+            return Json(res, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
