@@ -42,13 +42,13 @@ namespace SharinganSolutions.BussinesTresCapas
             foreach (DataRow q in obj.Tabla.Rows)
             {
                 
-                s.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
+                //s.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
                 s.NombreSalon = Convert.ToString(q["fcNombreSalon"]);
                 s.Contraseña = Convert.ToString(q["fcContraseña"]);
                 s.IdTipoUsuario = Convert.ToInt32(q["fiIdTipoUsuario"]);
                 s.IdTipoSalon = Convert.ToInt32(q["fiIdTipoSalon"]);
                 s.EsActivo = Convert.ToBoolean(q["fbEsActivo"]);
-            }
+            } 
             
             return s;
         }

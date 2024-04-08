@@ -1,4 +1,5 @@
-﻿using SharinganSolutions.BussinesTresCapas;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using SharinganSolutions.BussinesTresCapas;
 using SharinganSolutions.EntityTresCapas;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,28 @@ namespace appSalonFiestasTrescapas.Controllers
             obj.listCapacidad = new BCatalogoSalonDet().getCatalogoSalonDetCapacidad();
             return View(obj);
         }
+
         [HttpGet]
         public ActionResult getSalonDetalle(int Id)
         {
 
-            ESalon obj  = new BSalon().getSalonDetalle(Id); // vas por salon 
-            ESalon obj1 = new BSalon().getSalonDetalle(Id); // vas por detalle 
+            ESalon obj = new BSalon().getSalonDetalle(Id); // vas por salon 
+            ESalonDetalle obj1 = new BSalonDetalle().getSalonDetalle1(Id); // vas por detalle 
             ESalon res = new ESalon();
-            // ejemplo 
+            res.NombreSalon = obj.NombreSalon;
             res.Contraseña = obj.Contraseña;
+            res.IdTipoUsuario = obj.IdTipoUsuario;
+            res.IdTipoSalon = obj.IdTipoSalon;
+            res.EsActivo = obj.EsActivo;
+            res.Correo = obj1.Correo;
+            res.Telefono = obj1.Telefono;
+            res.Calle = obj1.Calle;
+            res.Colonia = obj1.Colonia;
+            res.Delegacion = obj1.Delegacion;
+            res.CPostal = obj1.CPostal;
+            res.Referencias = obj1.Referencias;
+            res.EntreCalles = obj1.EntreCalles;
+            res.Capacidad = obj1.Capacidad;
             res.IdSalon = obj1.IdSalon;
             return Json(res, JsonRequestBehavior.AllowGet);
         }

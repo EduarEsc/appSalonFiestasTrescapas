@@ -39,14 +39,12 @@ namespace SharinganSolutions.BussinesTresCapas
             objr.Codigo = Convert.ToInt32(array[0].Trim());
             return objr;
         }
-        public ERespuestaSalonDetList getSalonDetalle1(int fiIdDetalleSalon)
+        public ESalonDetalle getSalonDetalle1(int fiIdDetalleSalon)
         {
             ERespuestaSalonDet obj = new DSalonDetalle().getSalonDetalle1(fiIdDetalleSalon);
-            ERespuestaSalonDetList objr = new ERespuestaSalonDetList();
-            List<ESalonDetalle> list = new List<ESalonDetalle>();
+            ESalonDetalle d = new ESalonDetalle();
             foreach (DataRow q in obj.Tabla.Rows)
             {
-                ESalonDetalle d = new ESalonDetalle();
                 d.IdDetalleSalon = Convert.ToInt32(q["fiIdDetalleSalon"]);
                 d.Correo = Convert.ToString(q["fcCorreo"]);
                 d.Telefono = Convert.ToString(q["fcTelefono"]);
@@ -54,17 +52,12 @@ namespace SharinganSolutions.BussinesTresCapas
                 d.Colonia = Convert.ToString(q["fcColonia"]);
                 d.Delegacion = Convert.ToString(q["fcDelegacion"]);
                 d.CPostal = Convert.ToString(q["fcCPostal"]);
-                d.Referencias = Convert.ToString(q["fcReferencias"]);
+                d.Referencias = Convert.ToString(q["fcReferencia"]);
                 d.EntreCalles = Convert.ToString(q["fcEntreCalles"]);
                 d.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
-                d.Capacidad = Convert.ToInt32(q["fiCapacidad"]);
-                list.Add(d);
+                d.Capacidad = Convert.ToInt32(q["fiIdCapacidad"]);
             }
-            objr.listcDetalleSalones = list;
-            string[] array = obj.Mensaje.Split(',');
-            objr.Mensaje = array[1].Trim();
-            objr.Codigo = Convert.ToInt32(array[0].Trim());
-            return objr;
+            return d;
         }
         public ERespuestaSalonDetList postSalonDetalle(string fcCorreo, string fcTelefono,
                                                        string fcCalle, string fcColonia, 

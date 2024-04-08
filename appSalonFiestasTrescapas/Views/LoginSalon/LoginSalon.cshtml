@@ -54,7 +54,7 @@
                             <tr>
                                 <td style="text-align:center">@item.IdSalon</td>
                                 <td style="text-align:center">@item.NombreSalon</td>
-                                <td style="text-align:center">****</td>
+                                <td style="text-align:center">@item.Contraseña</td>
                                 <td style="text-align:center">@item.IdTipoUsuario</td>
                                 <td style="text-align:center">@item.IdTipoSalon</td>
                                 <td style="text-align:center">@item.EsActivo</td>
@@ -191,16 +191,16 @@
                     {
                         <div class="form-group">
                             <label for="NombreSalon">Nombre Salon:</label>
-                            <input type="text" class="form-control" id="NombreSalon" name="NombreSalon" required>
+                            <input type="text" class="form-control" id="NombreUp" name="NombreSalon" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="Contraseña">Password</label>
-                            <input type="password" class="form-control" id="Contraseña" name="Contraseña" placeholder="Password" required>
+                            <input type="password" class="form-control" id="ContraseñaUp" name="Contraseña" placeholder="Password" required>
                         </div>
                         <br />
                         <label for="TipoUsuarioUp">Tipo Usuario:</label>
-                        <select class="form-select" id="TipoUsuarioUp" name="IdTipoUsuario" aria-label="Default select example" required>
+                        <select class="form-select" id="TipoUsuarioUp" name="TipoUsuarioUp" aria-label="Default select example" required>
                             <option selected>Selecciona el tipo de usuario</option>
                             @foreach (var c in @Model.listTipoUsuario)
                             {
@@ -209,7 +209,7 @@
                         </select>
                         <br />
                         <label for="TiposalonUp">Tipo Salon:</label>
-                        <select class="form-select" id="TiposalonUp" name="IdTipoSalon" aria-label="Default select example" required>
+                        <select class="form-select" id="TiposalonUp" name="TipoSalonUp" aria-label="Default select example" required>
                             <option selected>Selecciona un tipo de salón</option>
                             @foreach (var l in @Model.listTipoSalon)
                             {
@@ -224,12 +224,12 @@
                         <br />
                         <div class="form-group">
                             <label for="CorreoSalon">Correo del Salon:</label>
-                            <input type="text" class="form-control" id="CorreoSalonUp" name="Correo" required>
+                            <input type="text" class="form-control" id="CorreoUp" name="Correo" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="TelefonoSalon">Telefono del Salon:</label>
-                            <input type="text" class="form-control" id="TelefonoSalonUp" name="Telefono" required>
+                            <input type="text" class="form-control" id="TelefonoUp" name="Telefono" required>
                         </div>
                         <br />
                         <div class="form-group">
@@ -249,7 +249,7 @@
                         <br />
                         <div class="form-group">
                             <label for="CPSalon">Codigo Postal del Salon:</label>
-                            <input type="text" class="form-control" id="CPUp" name="CPostal">
+                            <input type="text" class="form-control" id="CPostalUp" name="CPostal">
                         </div>
                         <br />
                         <div class="form-group">
@@ -259,11 +259,11 @@
                         <br />
                         <div class="form-group">
                             <label for="EntreCalleSalon">Entre que Calles:</label>
-                            <input type="text" class="form-control" id="EntreCalleUp" name="EntreCalles">
+                            <input type="text" class="form-control" id="EntreCallesUp" name="EntreCalles">
                         </div>
                         <br />
                         <label for="CapacidadSalonUp">Capacidad del Salon:</label>
-                        <select class="form-select" id="CapacidadSalonUp" name="Capacidad" aria-label="Default select example" required>
+                        <select class="form-select" id="TipoCapacidadUp" name="Capacidad" aria-label="Default select example" required>
                             <option selected>Selecciona la capacidad del salon.</option>
                             @foreach (var c in @Model.listCapacidad)
                             {
@@ -351,17 +351,15 @@
     <script>
         $(document).ready(function () {
             $('.btn-link-actualiza').on('click', function () {
-                var usedId = $(this).data('userid');
-                cargarDatosSalon(usedId);
+                var userId = $(this).data('userid');
+                cargarDatosSalon(userId);
             });
             $('#NombreUp, #ContraseñaUp, #TipoUsuarioUp, #TipoSalonUp, #CorreoUp, #TelefonoUp, #CalleUp, #ColoniaUp, #DelegacionUp, #CPostalUp, #ReferenciasUp, #EntreCallesUp, #TipoCapacidadUp').on('input', ValidacionActualizar);
             $('#ActualizarModal').on('shown.bs.modal', ValidacionActualizar);
             $('#Nombre, #Contraseña, #TipoUsuarioSelect, #TipoSalonSelect,#Correo, #Telefono, #Calle, #Colonia, #Delegacion, #CPostal, #Referencias, #EntreCalles, #TipoCapacidadSelect').on('input', ValidacionAgregar);
             $('#AgregarModal').on('shown.bs.modal', ValidacionAgregar);
         });
-
-
-
+        
         function cargarDatosSalon(userId) {
             console.log('Funcion cargarDatosSalon llamada con userId:', userId);
             $.ajax({
@@ -391,7 +389,6 @@
             });
         }
 
-
         function ValidacionActualizar() {
             var formCompleto = $('#NombreUp').val().trim() !== '' &&
                 $('#ContraseñaUp').val().trim() !== '' &&
@@ -408,6 +405,7 @@
                 $('#TipoCapacidadUp').val().trim() !== '';
             $('#btnActualizar').prop('disabled', !formCompleto)
         }
+
         function ValidacionAgregar() {
             var formCompleto = $('#Nombre').val().trim() !== '' &&
                 $('#Contraseña').val().trim() !== '' &&
@@ -422,7 +420,7 @@
                 $('#Referencias').val().trim() !== '' &&
                 $('#EntreCalles').val().trim() !== '' &&
                 $('#TipoCapacidadSelect').val().trim() !== '';
-            $('#btnAgregar').prop('disable', !formCompleto);
+            $('#btnAgregar').prop('disabled', !formCompleto);
         }
 
     </script>
