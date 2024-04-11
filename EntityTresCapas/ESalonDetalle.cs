@@ -19,6 +19,7 @@ namespace SharinganSolutions.EntityTresCapas
         public string Referencias { get; set; }
         public string EntreCalles { get; set; }
         public int IdSalon { get; set; }
+        public int IdCapacidad { get; set; }
         public int Capacidad { get; set; }
     }
 }

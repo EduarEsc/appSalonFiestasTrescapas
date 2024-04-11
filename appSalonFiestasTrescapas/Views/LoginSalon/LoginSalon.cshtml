@@ -98,8 +98,8 @@
                             <input type="password" class="form-control" id="Contraseña" name="Contraseña" placeholder="Password" required>
                         </div>
                         <br />
-                        <label for="TipoUsuarioUp">Tipo Usuario:</label>
-                        <select class="form-select" id="TipoUsuarioUp" name="IdTipoUsuario" aria-label="Default select example" required>
+                        <label for="TipoUsuario">Tipo Usuario:</label>
+                        <select class="form-select" id="TipoUsuario" name="IdTipoUsuario" aria-label="Default select example" required>
                             <option selected>Selecciona el tipo de usuario</option>
                             @foreach (var c in @Model.listTipoUsuario)
                             {
@@ -108,7 +108,7 @@
                         </select>
                         <br />
                         <label for="TiposalonUp">Tipo Salon:</label>
-                        <select class="form-select" id="TiposalonUp" name="IdTipoSalon" aria-label="Default select example" required>
+                        <select class="form-select" id="Tiposalon" name="IdTipoSalon" aria-label="Default select example" required>
                             <option selected>Selecciona un tipo de salón</option>
                             @foreach (var l in @Model.listTipoSalon)
                             {
@@ -117,48 +117,48 @@
                         </select>
                         <br />
                         <div>
-                            <input type="checkbox" id="EsActivoUp" name="EsActivo" value="true">
+                            <input type="checkbox" id="EsActivo" name="EsActivo" value="true">
                             <label for="EsActivo">Activo</label>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CorreoSalon">Correo del Salon:</label>
-                            <input type="text" class="form-control" id="CorreoSalonUp" name="Correo" required>
+                            <input type="text" class="form-control" id="CorreoSalon" name="Correo" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="TelefonoSalon">Telefono del Salon:</label>
-                            <input type="text" class="form-control" id="TelefonoSalonUp" name="Telefono" required>
+                            <input type="text" class="form-control" id="TelefonoSalon" name="Telefono" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CalleSalon">Calle del Salon:</label>
-                            <input type="text" class="form-control" id="CalleUp" name="Calle">
+                            <input type="text" class="form-control" id="Calle" name="Calle">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="ColoniaSalon">Colonia del Salon:</label>
-                            <input type="text" class="form-control" id="ColoniaUp" name="Colonia">
+                            <input type="text" class="form-control" id="Colonia" name="Colonia">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="DelegacionSalon">Delegacion del Salon:</label>
-                            <input type="text" class="form-control" id="DelegacionUp" name="Delegacion">
+                            <input type="text" class="form-control" id="Delegacion" name="Delegacion">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CPSalon">Codigo Postal del Salon:</label>
-                            <input type="text" class="form-control" id="CPUp" name="CPostal">
+                            <input type="text" class="form-control" id="CP" name="CPostal">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="Referencias">Referencias del Salon:</label>
-                            <input type="text" class="form-control" id="ReferenciasUp" name="Referencias">
+                            <input type="text" class="form-control" id="Referencias" name="Referencias">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="EntreCalleSalon">Entre que Calles:</label>
-                            <input type="text" class="form-control" id="EntreCalleUp" name="EntreCalles">
+                            <input type="text" class="form-control" id="EntreCalle" name="EntreCalles">
                         </div>
                         <br />
                         <label for="CapacidadSalonUp">Capacidad del Salon:</label>
@@ -199,8 +199,8 @@
                             <input type="password" class="form-control" id="ContraseñaUp" name="Contraseña" placeholder="Password" required>
                         </div>
                         <br />
-                        <label for="TipoUsuarioUp">Tipo Usuario:</label>
-                        <select class="form-select" id="TipoUsuarioUp" name="TipoUsuarioUp" aria-label="Default select example" required>
+                        <label for="TipoUsuario">Tipo Usuario:</label>
+                        <select class="form-select" id="TipoUsuarioUp" name="TipoUsuario" aria-label="Default select example" required>
                             <option selected>Selecciona el tipo de usuario</option>
                             @foreach (var c in @Model.listTipoUsuario)
                             {
@@ -208,8 +208,8 @@
                             }
                         </select>
                         <br />
-                        <label for="TiposalonUp">Tipo Salon:</label>
-                        <select class="form-select" id="TiposalonUp" name="TipoSalonUp" aria-label="Default select example" required>
+                        <label for="Tiposalon">Tipo Salon:</label>
+                        <select class="form-select" id="TipoSalonUp" name="TipoSalon" aria-label="Default select example" required>
                             <option selected>Selecciona un tipo de salón</option>
                             @foreach (var l in @Model.listTipoSalon)
                             {
@@ -292,42 +292,42 @@
                     {
                         <div class="form-group">
                             <label for="CorreoSalon">Correo del Salon:</label>
-                            <input type="text" class="form-control" id="CorreoSalonUp" name="Correo" readonly>
+                            <input type="text" class="form-control" id="CorreoSalon" name="Correo" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="TelefonoSalon">Telefono del Salon:</label>
-                            <input type="text" class="form-control" id="TelefonoSalonUp" name="Telefono" readonly>
+                            <input type="text" class="form-control" id="TelefonoSalon" name="Telefono" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CalleSalon">Calle del Salon:</label>
-                            <input type="text" class="form-control" id="CalleUp" name="Calle" readonly>
+                            <input type="text" class="form-control" id="Calle" name="Calle" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="ColoniaSalon">Colonia del Salon:</label>
-                            <input type="text" class="form-control" id="ColoniaUp" name="Colonia" readonly>
+                            <input type="text" class="form-control" id="Colonia" name="Colonia" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="DelegacionSalon">Delegacion del Salon:</label>
-                            <input type="text" class="form-control" id="DelegacionUp" name="Delegacion" readonly>
+                            <input type="text" class="form-control" id="Delegacion" name="Delegacion" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CPSalon">Codigo Postal del Salon:</label>
-                            <input type="text" class="form-control" id="CPUp" name="CPostal" readonly>
+                            <input type="text" class="form-control" id="CP" name="CPostal" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="Referencias">Referencias del Salon:</label>
-                            <input type="text" class="form-control" id="ReferenciasUp" name="Referencias" readonly>
+                            <input type="text" class="form-control" id="Referencias" name="Referencias" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="EntreCalleSalon">Entre que Calles:</label>
-                            <input type="text" class="form-control" id="EntreCalleUp" name="EntreCalles" readonly>
+                            <input type="text" class="form-control" id="EntreCalle" name="EntreCalles" readonly>
                         </div>
                         <br />
                         <label for="CapacidadSalonUp">Capacidad del Salon:</label>
@@ -380,7 +380,7 @@
                     $('#CPostalUp').val(data.CPostal);
                     $('#ReferenciasUp').val(data.Referencias);
                     $('#EntreCallesUp').val(data.EntreCalles);
-                    $('#TipoCapacidadUp').val(data.IdTipoCapacidad);
+                    $('#TipoCapacidadUp').val(data.IdCapacidad);
                     $('#ActualizarModal').modal('show');
                 },
                 Error: function () {
@@ -392,7 +392,7 @@
         function ValidacionActualizar() {
             var formCompleto = $('#NombreUp').val().trim() !== '' &&
                 $('#ContraseñaUp').val().trim() !== '' &&
-                $('#TipoUsuarioUp').val().trim() !== '' &&
+                $('#TipoUsuario').val().trim() !== '' &&
                 $('#TipoSalonUp').val().trim() !== '' &&
                 $('#CorreoUp').val().trim() !== '' &&
                 $('#TelefonoUp').val().trim() !== '' &&

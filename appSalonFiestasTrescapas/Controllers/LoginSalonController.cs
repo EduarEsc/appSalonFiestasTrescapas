@@ -44,6 +44,7 @@ namespace appSalonFiestasTrescapas.Controllers
             res.CPostal = obj1.CPostal;
             res.Referencias = obj1.Referencias;
             res.EntreCalles = obj1.EntreCalles;
+            res.IdCapacidad = obj1.IdCapacidad;
             res.Capacidad = obj1.Capacidad;
             res.IdSalon = obj1.IdSalon;
             return Json(res, JsonRequestBehavior.AllowGet);
@@ -64,13 +65,13 @@ namespace appSalonFiestasTrescapas.Controllers
             return RedirectToAction("LoginSalon");
         }
 
-        public ActionResult putSalon()
-
+        public ActionResult putSalon(ESalon salon)
         {
-            new BSalon().putSalon(1, "Juan", "hui", 1, 1, true);
+            new BSalon().putSalon(salon.IdSalon, salon.NombreSalon, salon.Contraseña, salon.IdTipoUsuario, salon.IdTipoSalon, salon.EsActivo);
+            new BSalonDetalle().putSalonDetalle(salon.Correo, salon.Telefono, salon.Calle, salon.Colonia, salon.Delegacion, salon.CPostal, salon.Referencias, salon.EntreCalles, salon.IdSalon, salon.Capacidad);
 
 
-            return View("LoginSalon");
+            return RedirectToAction("LoginSalon");
         }
       
     }

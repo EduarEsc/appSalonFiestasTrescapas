@@ -30,6 +30,7 @@ namespace SharinganSolutions.BussinesTresCapas
                 d.Referencias = Convert.ToString(q["fcReferencia"]);
                 d.EntreCalles = Convert.ToString(q["fcEntreCalles"]);
                 d.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
+                d.IdCapacidad = Convert.ToInt32(q["fiIdCapacidad"]);
                 d.Capacidad = Convert.ToInt32(q["fiCapacidad"]);
                 list.Add(d);
             }
@@ -55,7 +56,8 @@ namespace SharinganSolutions.BussinesTresCapas
                 d.Referencias = Convert.ToString(q["fcReferencia"]);
                 d.EntreCalles = Convert.ToString(q["fcEntreCalles"]);
                 d.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
-                d.Capacidad = Convert.ToInt32(q["fiIdCapacidad"]);
+                d.IdCapacidad = Convert.ToInt32(q["fiIdCapacidad"]);
+                d.Capacidad = Convert.ToInt32(q["fiCapacidad"]);
             }
             return d;
         }
