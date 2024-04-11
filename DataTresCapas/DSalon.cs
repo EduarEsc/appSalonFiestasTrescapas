@@ -96,7 +96,7 @@ namespace SharinganSolutions.DataTresCapas
                                string fcContraseña, int fiIdTipoUsuario,
                                int fiIdTipoSalon, bool fbEsActivo
                               )
-        {
+        { 
             string resMens = string.Empty;
             using (SqlConnection con = new SqlConnection(Conexion))
             {

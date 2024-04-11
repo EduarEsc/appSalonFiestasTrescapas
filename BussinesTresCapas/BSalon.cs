@@ -70,7 +70,7 @@ namespace SharinganSolutions.BussinesTresCapas
                                             string fcContraseña, int fiIdTipoUsuario,
                                             int fiIdTipoSalon, bool fbEsActivo)
         {
-
+             
             string[] array = new DSalon().putSalon(fiIdSalon, fcNombreSalon, fcContraseña,
                                                    fiIdTipoUsuario, fiIdTipoSalon, fbEsActivo).Split(',');
             ERespuestaSalonList objr = new ERespuestaSalonList();
