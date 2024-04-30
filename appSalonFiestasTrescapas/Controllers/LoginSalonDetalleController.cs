@@ -1,9 +1,5 @@
 ﻿using SharinganSolutions.BussinesTresCapas;
 using SharinganSolutions.EntityTresCapas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace appSalonFiestasTrescapas.Controllers
@@ -41,16 +37,15 @@ namespace appSalonFiestasTrescapas.Controllers
             return RedirectToAction("LoginSalonDetalle");
         }
 
-        public ActionResult putSalonDetalle()
+        //public ActionResult putSalonDetalle()
 
-        {
-            new BSalonDetalle().putSalonDetalle("uue", "63485957", "uue", "63485957", 
-                                                "uue", "63485957", "uue", "63485957", 1, 3);
+        //{
+        //    new BSalonDetalle().putSalonDetalle("uue", "63485957", "uue", "63485957", 
+        //                                        "uue", "63485957", "uue", "63485957", 1, 3);
 
 
-            return View("LoginSalon");
-        }
+        //    return View("LoginSalon");
+        //}
 
     }
 }
- 

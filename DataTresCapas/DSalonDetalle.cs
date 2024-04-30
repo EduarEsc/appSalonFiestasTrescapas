@@ -11,7 +11,7 @@ namespace SharinganSolutions.DataTresCapas
 {
     public class DSalonDetalle : DAbstracta
     {
-        public ERespuestaSalonDet getSalonDetalle(int IdDetalle)
+        public ERespuestaSalonDet getSalonDetalle(int fiIdDetalleSalon)
         {
             ERespuestaSalonDet obj = new ERespuestaSalonDet();
             string resMens = string.Empty;
@@ -23,7 +23,6 @@ namespace SharinganSolutions.DataTresCapas
                 {
                     com.CommandType = CommandType.StoredProcedure;
                     com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 1 });
-                    com.Parameters.Add(new SqlParameter("@fiIdDetalleSalon", SqlDbType.Int) { Value = IdDetalle });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
                     com.ExecuteNonQuery();
                     resMens = com.Parameters["@Mensaje"].Value.ToString();
@@ -38,7 +37,7 @@ namespace SharinganSolutions.DataTresCapas
             obj.Mensaje = resMens;
             return obj;
         }
-        public ERespuestaSalonDet getSalonDetalle1(int fiIdDetalleSalon)
+        public ERespuestaSalonDet getSalonDetalle1(int fiIdSalon)
         {
 
             ERespuestaSalonDet obj = new ERespuestaSalonDet();
@@ -51,7 +50,7 @@ namespace SharinganSolutions.DataTresCapas
                 {
                     com.CommandType = CommandType.StoredProcedure;
                     com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 2 });
-                    com.Parameters.Add(new SqlParameter("@fiIdDetalleSalon", SqlDbType.Int) { Value = fiIdDetalleSalon });
+                    com.Parameters.Add(new SqlParameter("@fiIdSalon", SqlDbType.Int) { Value = fiIdSalon });
                     com.Parameters.Add(new SqlParameter("@Mensaje", SqlDbType.NVarChar, 100) { Direction = ParameterDirection.Output });
                     com.ExecuteNonQuery();
                     resMen = com.Parameters["@Mensaje"].Value.ToString();
@@ -99,8 +98,7 @@ namespace SharinganSolutions.DataTresCapas
             return resMen;
         }
 
-
-        public string putSalonDetalle(string fcCorreo, string fcTelefono,
+        public string putSalonDetalle(int fiIdDetalleSalon, string fcCorreo, string fcTelefono,
                                       string fcCalle, string fcColonia, string fcDelegacion,
                                       string fcCPostal, string fcReferencias,
                                       string fcEntreCalles, int fiIdSalon, int fiIdCapacidad
@@ -114,6 +112,7 @@ namespace SharinganSolutions.DataTresCapas
                 {
                     com.CommandType = CommandType.StoredProcedure;
                     com.Parameters.Add(new SqlParameter("@Accion", SqlDbType.Int) { Value = 4 });
+                    com.Parameters.Add(new SqlParameter("@fiIdDetalleSalon", SqlDbType.Int) { Value = fiIdDetalleSalon });
                     com.Parameters.Add(new SqlParameter("@fcCorreo", SqlDbType.NVarChar, 200) { Value = fcCorreo });
                     com.Parameters.Add(new SqlParameter("@fcTelefono", SqlDbType.NVarChar, 200) { Value = fcTelefono });
                     com.Parameters.Add(new SqlParameter("@fcCalle", SqlDbType.NVarChar, 200) { Value = fcCalle });

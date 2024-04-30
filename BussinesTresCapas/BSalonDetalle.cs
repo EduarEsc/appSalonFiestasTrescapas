@@ -40,9 +40,10 @@ namespace SharinganSolutions.BussinesTresCapas
             objr.Codigo = Convert.ToInt32(array[0].Trim());
             return objr;
         }
-        public ESalonDetalle getSalonDetalle1(int fiIdDetalleSalon)
+
+        public ESalonDetalle getSalonDetalle1(int fiIdSalon)
         {
-            ERespuestaSalonDet obj = new DSalonDetalle().getSalonDetalle1(fiIdDetalleSalon);
+            ERespuestaSalonDet obj = new DSalonDetalle().getSalonDetalle1(fiIdSalon);
             ESalonDetalle d = new ESalonDetalle();
             foreach (DataRow q in obj.Tabla.Rows)
             {
@@ -61,6 +62,7 @@ namespace SharinganSolutions.BussinesTresCapas
             }
             return d;
         }
+
         public ERespuestaSalonDetList postSalonDetalle(string fcCorreo, string fcTelefono,
                                                        string fcCalle, string fcColonia, 
                                                        string fcDelegacion, string fcCPostal, 
@@ -78,14 +80,14 @@ namespace SharinganSolutions.BussinesTresCapas
             objr.Codigo = Convert.ToInt32(array[0].Trim());
             return objr;
         }
-        public ERespuestaSalonDetList putSalonDetalle(string fcCorreo, string fcTelefono, string fcCalle, 
+        public ERespuestaSalonDetList putSalonDetalle(int fiIdDetalleSalon, string fcCorreo, string fcTelefono, string fcCalle, 
                                                       string fcColonia, string fcDelegacion, 
                                                       string fcCPostal, string fcReferencias, 
                                                       string fcEntreCalles,int fiIdSalon,
                                                       int fiIdCapacidad)
         {
 
-            string[] array = new DSalonDetalle().putSalonDetalle(fcCorreo, fcTelefono, fcCalle, fcColonia,
+            string[] array = new DSalonDetalle().putSalonDetalle(fiIdDetalleSalon, fcCorreo, fcTelefono, fcCalle, fcColonia,
                                                                  fcDelegacion, fcCPostal, fcReferencias,
                                                                  fcEntreCalles, fiIdSalon, fiIdCapacidad).Split(',');
             ERespuestaSalonDetList objr = new ERespuestaSalonDetList();

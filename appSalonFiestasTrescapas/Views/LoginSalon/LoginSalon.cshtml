@@ -65,9 +65,9 @@
 
                                 </td>
                                 <td style="text-align:center">
-                                    <button type="button" class="btn btn-primary btn-link-detalle" data-bs-toggle="modal" data-bs-target="#DetalleSalonModal">
+                                    <a class="btn btn-primary btn-link-detalle" data-userid="@item.IdSalon" id="detalle">
                                         Ver Detalle
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         }
@@ -123,46 +123,46 @@
                         <br />
                         <div class="form-group">
                             <label for="CorreoSalon">Correo del Salon:</label>
-                            <input type="text" class="form-control" id="CorreoSalon" name="Correo" required>
+                            <input type="text" class="form-control" id="CorreoSalon" name="CorreoAg" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="TelefonoSalon">Telefono del Salon:</label>
-                            <input type="text" class="form-control" id="TelefonoSalon" name="Telefono" required>
+                            <input type="text" class="form-control" id="TelefonoSalon" name="TelefonoAg" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CalleSalon">Calle del Salon:</label>
-                            <input type="text" class="form-control" id="Calle" name="Calle">
+                            <input type="text" class="form-control" id="Calle" name="CalleAg">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="ColoniaSalon">Colonia del Salon:</label>
-                            <input type="text" class="form-control" id="Colonia" name="Colonia">
+                            <input type="text" class="form-control" id="Colonia" name="ColoniaAg">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="DelegacionSalon">Delegacion del Salon:</label>
-                            <input type="text" class="form-control" id="Delegacion" name="Delegacion">
+                            <input type="text" class="form-control" id="Delegacion" name="DelegacionAg">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CPSalon">Codigo Postal del Salon:</label>
-                            <input type="text" class="form-control" id="CP" name="CPostal">
+                            <input type="text" class="form-control" id="CP" name="CPostalAg">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="Referencias">Referencias del Salon:</label>
-                            <input type="text" class="form-control" id="Referencias" name="Referencias">
+                            <input type="text" class="form-control" id="Referencias" name="ReferenciasAg">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="EntreCalleSalon">Entre que Calles:</label>
-                            <input type="text" class="form-control" id="EntreCalle" name="EntreCalles">
+                            <input type="text" class="form-control" id="EntreCalle" name="EntreCallesAg">
                         </div>
                         <br />
                         <label for="CapacidadSalonUp">Capacidad del Salon:</label>
-                        <select class="form-select" id="CapacidadSalonUp" name="Capacidad" aria-label="Default select example" required>
+                        <select class="form-select" id="CapacidadSalonUp" name="CapacidadAg" aria-label="Default select example" required>
                             <option selected>Selecciona la capacidad del salon.</option>
                             @foreach (var c in @Model.listCapacidad)
                             {
@@ -189,6 +189,8 @@
 
                     @using (Html.BeginForm("putSalon", "LoginSalon", FormMethod.Post))
                     {
+                        @Html.Hidden("IdSalon")
+                        @Html.Hidden("IdDetalleSalon")
                         <div class="form-group">
                             <label for="NombreSalon">Nombre Salon:</label>
                             <input type="text" class="form-control" id="NombreUp" name="NombreSalon" required>
@@ -200,7 +202,7 @@
                         </div>
                         <br />
                         <label for="TipoUsuario">Tipo Usuario:</label>
-                        <select class="form-select" id="TipoUsuarioUp" name="TipoUsuario" aria-label="Default select example" required>
+                        <select class="form-select" id="TipoUsuarioUp" name="IdTipoUsuario" aria-label="Default select example" required>
                             <option selected>Selecciona el tipo de usuario</option>
                             @foreach (var c in @Model.listTipoUsuario)
                             {
@@ -209,7 +211,7 @@
                         </select>
                         <br />
                         <label for="Tiposalon">Tipo Salon:</label>
-                        <select class="form-select" id="TipoSalonUp" name="TipoSalon" aria-label="Default select example" required>
+                        <select class="form-select" id="TipoSalonUp" name="IdTipoSalon" aria-label="Default select example" required>
                             <option selected>Selecciona un tipo de salón</option>
                             @foreach (var l in @Model.listTipoSalon)
                             {
@@ -279,7 +281,7 @@
         </div>
     </div>
 
-    <div class="modal fade modal-dialog-scrollable" id="DetalleSalonModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DetSalon" aria-hidden="true">
+    <div class="modal fade modal-dialog-scrollable" id="DetalleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DetSalon" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -290,48 +292,49 @@
 
                     @using (Html.BeginForm("postSalon", "LoginSalon", FormMethod.Post))
                     {
+                        @Html.Hidden("IdDetalleSalon")
                         <div class="form-group">
                             <label for="CorreoSalon">Correo del Salon:</label>
-                            <input type="text" class="form-control" id="CorreoSalon" name="Correo" readonly>
+                            <input type="text" class="form-control" id="CorreoDt" name="Correo" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="TelefonoSalon">Telefono del Salon:</label>
-                            <input type="text" class="form-control" id="TelefonoSalon" name="Telefono" readonly>
+                            <input type="text" class="form-control" id="TelefonoDt" name="Telefono" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CalleSalon">Calle del Salon:</label>
-                            <input type="text" class="form-control" id="Calle" name="Calle" readonly>
+                            <input type="text" class="form-control" id="CalleDt" name="CalleDl" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="ColoniaSalon">Colonia del Salon:</label>
-                            <input type="text" class="form-control" id="Colonia" name="Colonia" readonly>
+                            <input type="text" class="form-control" id="ColoniaDt" name="ColoniaDl" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="DelegacionSalon">Delegacion del Salon:</label>
-                            <input type="text" class="form-control" id="Delegacion" name="Delegacion" readonly>
+                            <input type="text" class="form-control" id="DelegacionDt" name="DelegacionDl" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CPSalon">Codigo Postal del Salon:</label>
-                            <input type="text" class="form-control" id="CP" name="CPostal" readonly>
+                            <input type="text" class="form-control" id="CPostalDt" name="CPostalDl" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="Referencias">Referencias del Salon:</label>
-                            <input type="text" class="form-control" id="Referencias" name="Referencias" readonly>
+                            <input type="text" class="form-control" id="ReferenciasDt" name="ReferenciasDl" readonly>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="EntreCalleSalon">Entre que Calles:</label>
-                            <input type="text" class="form-control" id="EntreCalle" name="EntreCalles" readonly>
+                            <input type="text" class="form-control" id="EntreCallesDt" name="EntreCallesDl" readonly>
                         </div>
                         <br />
                         <label for="CapacidadSalonUp">Capacidad del Salon:</label>
-                        <select class="form-select" id="CapacidadSalonUp" name="Capacidad" aria-label="Default select example" disabled="disabled">
+                        <select class="form-select" id="TipoCapacidadDt" name="CapacidadDl" aria-label="Default select example" disabled="disabled">
                             <option readonly>Selecciona la capacidad del salon.</option>
                             @foreach (var c in @Model.listCapacidad)
                             {
@@ -354,10 +357,16 @@
                 var userId = $(this).data('userid');
                 cargarDatosSalon(userId);
             });
+
             $('#NombreUp, #ContraseñaUp, #TipoUsuarioUp, #TipoSalonUp, #CorreoUp, #TelefonoUp, #CalleUp, #ColoniaUp, #DelegacionUp, #CPostalUp, #ReferenciasUp, #EntreCallesUp, #TipoCapacidadUp').on('input', ValidacionActualizar);
             $('#ActualizarModal').on('shown.bs.modal', ValidacionActualizar);
             $('#Nombre, #Contraseña, #TipoUsuarioSelect, #TipoSalonSelect,#Correo, #Telefono, #Calle, #Colonia, #Delegacion, #CPostal, #Referencias, #EntreCalles, #TipoCapacidadSelect').on('input', ValidacionAgregar);
             $('#AgregarModal').on('shown.bs.modal', ValidacionAgregar);
+
+            $('.btn-link-detalle').on('click', function () {
+                var UserId = $(this).data('userid');
+                cargarDatosDetalle(UserId);
+            });
         });
         
         function cargarDatosSalon(userId) {
@@ -367,6 +376,9 @@
                 type: 'GET',
                 data: { Id: userId },
                 success: function (data) {
+                    alert(data.Correo);
+                    $('#IdSalon').val(data.IdSalon);
+                    $('#IdDetalleSalon').val(data.IdDetalleSalon);
                     $('#NombreUp').val(data.NombreSalon);
                     $('#ContraseñaUp').val(data.Contraseña);
                     $('#TipoUsuarioUp').val(data.IdTipoUsuario);
@@ -385,6 +397,33 @@
                 },
                 Error: function () {
                     console.log('Error al obtener datos del Salon.');
+                }
+            });
+        }
+
+        function cargarDatosDetalle(UserId) {
+            alert(UserId);;
+            $.ajax({
+                url: '/LoginSalon/getSalonDetalle',
+                type: 'GET',
+                data: { Id: UserId },
+                success: function (data) {
+                    alert(data.Correo)
+                    alert(data.Telefono)
+                    $('#IdDetalleSalon').val(data.IdDetalleSalon);
+                    $('#CorreoDt').val(data.Correo);
+                    $('#TelefonoDt').val(data.Telefono);
+                    $('#CalleDt').val(data.Calle);
+                    $('#ColoniaDt').val(data.Colonia);
+                    $('#DelegacionDt').val(data.Delegacion);
+                    $('#CPostalDt').val(data.CPostal);
+                    $('#ReferenciasDt').val(data.Referencias);
+                    $('#EntreCallesDt').val(data.EntreCalles);
+                    $('#TipoCapacidadDt').val(data.IdCapacidad);
+                    $('#DetalleModal').modal('show');
+                },
+                Error: function () {
+                    console.log('Error al obtener detalle.');
                 }
             });
         }

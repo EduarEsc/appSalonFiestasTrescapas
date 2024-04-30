@@ -86,7 +86,7 @@ namespace SharinganSolutions.BussinesTresCapas
              
             string[] array = new DUsuarioSalon().putUsuarioSalon(fiIdUsuarioSalon, fcNombreUsuario, fcContraseña,
                                                    fiIdSalon, fiIdTipoUsuario, fbEsActivo
-                                                 ).Split(',');
+                                                 ).Split(','); 
             ERespuestaUsuarioSalon objr = new ERespuestaUsuarioSalon();
             objr.Mensaje = array[1].Trim();
             objr.Codigo = Convert.ToInt32(array[0].Trim());

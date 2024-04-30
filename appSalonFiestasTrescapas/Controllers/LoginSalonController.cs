@@ -21,11 +21,13 @@ namespace appSalonFiestasTrescapas.Controllers
             obj.listTipoSalon = new BCatalogoSalon().getCatalogoTipoSalon();
             obj.listTipoUsuario = new BCatalogoSalon().getCatalogoTipoUsuario();
             obj.listCapacidad = new BCatalogoSalonDet().getCatalogoSalonDetCapacidad();
+            
             return View(obj);
         }
 
         [HttpGet]
         public ActionResult getSalonDetalle(int Id)
+        
         {
 
             ESalon obj = new BSalon().getSalonDetalle(Id); // vas por salon 
@@ -47,6 +49,7 @@ namespace appSalonFiestasTrescapas.Controllers
             res.IdCapacidad = obj1.IdCapacidad;
             res.Capacidad = obj1.Capacidad;
             res.IdSalon = obj1.IdSalon;
+            res.IdDetalleSalon = obj1.IdDetalleSalon;
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 
@@ -68,7 +71,7 @@ namespace appSalonFiestasTrescapas.Controllers
         public ActionResult putSalon(ESalon salon)
         {
             new BSalon().putSalon(salon.IdSalon, salon.NombreSalon, salon.Contraseña, salon.IdTipoUsuario, salon.IdTipoSalon, salon.EsActivo);
-            new BSalonDetalle().putSalonDetalle(salon.Correo, salon.Telefono, salon.Calle, salon.Colonia, salon.Delegacion, salon.CPostal, salon.Referencias, salon.EntreCalles, salon.IdSalon, salon.Capacidad);
+       new BSalonDetalle().putSalonDetalle(salon.IdDetalleSalon, salon.Correo, salon.Telefono, salon.Calle, salon.Colonia, salon.Delegacion, salon.CPostal, salon.Referencias, salon.EntreCalles, salon.IdSalon, salon.Capacidad);
 
 
             return RedirectToAction("LoginSalon");
