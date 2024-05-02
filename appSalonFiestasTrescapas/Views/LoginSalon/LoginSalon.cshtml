@@ -123,46 +123,46 @@
                         <br />
                         <div class="form-group">
                             <label for="CorreoSalon">Correo del Salon:</label>
-                            <input type="text" class="form-control" id="CorreoSalon" name="CorreoAg" required>
+                            <input type="text" class="form-control" id="CorreoSalon" name="Correo" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="TelefonoSalon">Telefono del Salon:</label>
-                            <input type="text" class="form-control" id="TelefonoSalon" name="TelefonoAg" required>
+                            <input type="text" class="form-control" id="TelefonoSalon" name="Telefono" required>
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CalleSalon">Calle del Salon:</label>
-                            <input type="text" class="form-control" id="Calle" name="CalleAg">
+                            <input type="text" class="form-control" id="Calle" name="Calle">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="ColoniaSalon">Colonia del Salon:</label>
-                            <input type="text" class="form-control" id="Colonia" name="ColoniaAg">
+                            <input type="text" class="form-control" id="Colonia" name="Colonia">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="DelegacionSalon">Delegacion del Salon:</label>
-                            <input type="text" class="form-control" id="Delegacion" name="DelegacionAg">
+                            <input type="text" class="form-control" id="Delegacion" name="Delegacion">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="CPSalon">Codigo Postal del Salon:</label>
-                            <input type="text" class="form-control" id="CP" name="CPostalAg">
+                            <input type="text" class="form-control" id="CP" name="CPostal">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="Referencias">Referencias del Salon:</label>
-                            <input type="text" class="form-control" id="Referencias" name="ReferenciasAg">
+                            <input type="text" class="form-control" id="Referencias" name="Referencias">
                         </div>
                         <br />
                         <div class="form-group">
                             <label for="EntreCalleSalon">Entre que Calles:</label>
-                            <input type="text" class="form-control" id="EntreCalle" name="EntreCallesAg">
+                            <input type="text" class="form-control" id="EntreCalle" name="EntreCalles">
                         </div>
                         <br />
                         <label for="CapacidadSalonUp">Capacidad del Salon:</label>
-                        <select class="form-select" id="CapacidadSalonUp" name="CapacidadAg" aria-label="Default select example" required>
+                        <select class="form-select" id="CapacidadSalonUp" name="Capacidad" aria-label="Default select example" required>
                             <option selected>Selecciona la capacidad del salon.</option>
                             @foreach (var c in @Model.listCapacidad)
                             {
@@ -376,7 +376,6 @@
                 type: 'GET',
                 data: { Id: userId },
                 success: function (data) {
-                    alert(data.Correo);
                     $('#IdSalon').val(data.IdSalon);
                     $('#IdDetalleSalon').val(data.IdDetalleSalon);
                     $('#NombreUp').val(data.NombreSalon);
@@ -402,14 +401,11 @@
         }
 
         function cargarDatosDetalle(UserId) {
-            alert(UserId);;
             $.ajax({
                 url: '/LoginSalon/getSalonDetalle',
                 type: 'GET',
                 data: { Id: UserId },
                 success: function (data) {
-                    alert(data.Correo)
-                    alert(data.Telefono)
                     $('#IdDetalleSalon').val(data.IdDetalleSalon);
                     $('#CorreoDt').val(data.Correo);
                     $('#TelefonoDt').val(data.Telefono);

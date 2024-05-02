@@ -18,7 +18,7 @@ namespace SharinganSolutions.DataTresCapas
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(Conexion))
             {
-                con.Open();
+                con.Open(); 
                 using (SqlCommand com = new SqlCommand("Salon_sp", con))
                 {
                     com.CommandType = CommandType.StoredProcedure;

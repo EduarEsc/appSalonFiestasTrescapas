@@ -20,7 +20,7 @@ namespace SharinganSolutions.BussinesTresCapas
             List<ESalon> list = new List<ESalon>();
             foreach (DataRow q in obj.Tabla.Rows)
             {
-                ESalon s = new ESalon();
+                ESalon s = new ESalon(); 
                 s.IdSalon = Convert.ToInt32(q["fiIdSalon"]);
                 s.NombreSalon = Convert.ToString(q["fcNombreSalon"]);
                 s.Contraseña = Convert.ToString(q["fcContraseña"]);

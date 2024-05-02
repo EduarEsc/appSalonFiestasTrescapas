@@ -70,8 +70,11 @@ namespace appSalonFiestasTrescapas.Controllers
 
         public ActionResult putSalon(ESalon salon)
         {
-            new BSalon().putSalon(salon.IdSalon, salon.NombreSalon, salon.Contraseña, salon.IdTipoUsuario, salon.IdTipoSalon, salon.EsActivo);
-       new BSalonDetalle().putSalonDetalle(salon.IdDetalleSalon, salon.Correo, salon.Telefono, salon.Calle, salon.Colonia, salon.Delegacion, salon.CPostal, salon.Referencias, salon.EntreCalles, salon.IdSalon, salon.Capacidad);
+            new BSalon().putSalon(salon.IdSalon, salon.NombreSalon, salon.Contraseña, salon.IdTipoUsuario, 
+                                  salon.IdTipoSalon, salon.EsActivo);
+            new BSalonDetalle().putSalonDetalle(salon.IdDetalleSalon, salon.Correo, salon.Telefono, salon.Calle, 
+                                                salon.Colonia, salon.Delegacion, salon.CPostal, salon.Referencias, 
+                                                salon.EntreCalles, salon.IdSalon, salon.Capacidad);
 
 
             return RedirectToAction("LoginSalon");
